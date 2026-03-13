@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASP | Asterio Strategy Partners</title>
+  <meta name="description" content="戦略的思考のDNAを、組織の中に根づかせる。元BCGパートナー・ケースリーダーが、実プロジェクトを通じて自走する戦略組織を実現します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1B2057;
+      --navy-light: #2A3178;
+      --navy-dark: #0F1338;
+      --accent-blue: #4A8EC2;
+      --accent-cyan: #6BB8D9;
+      --accent-red: #C41E3A;
+      --white: #FFFFFF;
+      --off-white: #F7F8FC;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --font-en: 'Cormorant Garamond', 'Georgia', serif;
+      --font-en-sans: 'Inter', sans-serif;
+      --font-jp: 'Noto Serif JP', '游明朝', 'Yu Mincho', 'ヒラギノ明朝', serif;
+      --border-light: rgba(27, 32, 87, 0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-jp);
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.9;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 clamp(24px, 4vw, 64px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    nav.scrolled {
+      background: rgba(27, 32, 87, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.3s;
+    }
+    .nav-logo img:hover { opacity: 0.85; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-family: var(--font-en-sans);
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.3s;
+      letter-spacing: 1px;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-contact-btn {
+      border: 0.5px solid rgba(255,255,255,0.3);
+      padding: 8px 28px;
+      border-radius: 0;
+      transition: all 0.3s;
+    }
+    .nav-contact-btn:hover {
+      background: var(--white);
+      color: var(--navy) !important;
+      border-color: var(--white);
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 200;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 clamp(24px, 4vw, 64px);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(74, 142, 194, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Thin decorative line */
+    .hero-line {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      width: 1px;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
+      transform: translateY(-50%);
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .hero-wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 2px);
+      height: 60px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-label {
+      font-family: var(--font-en-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-en);
+      font-size: clamp(38px, 5.5vw, 76px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent-cyan);
+    }
+    .hero-subtitle {
+      font-family: var(--font-jp);
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 2.2;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      opacity: 0;
+      animation: fadeUp 1s 0.7s forwards;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      padding: 14px 48px;
+      font-family: var(--font-jp);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border: 0.5px solid rgba(255,255,255,0.3);
+      transition: all 0.4s;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+    .hero-cta:hover {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollPulse 2.5s infinite;
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: clamp(80px, 10vw, 140px) clamp(24px, 4vw, 64px); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--font-en-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-jp);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray-500);
+      line-height: 2;
+      max-width: 600px;
+    }
+
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== VISION / MISSION ===== */
+    .vision-mission { background: var(--off-white); }
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 56px;
+    }
+    .vm-card {
+      background: var(--white);
+      padding: 48px 44px;
+      border-radius: 0;
+      box-shadow: none;
+      border-top: 0.5px solid var(--navy);
+      transition: transform 0.3s;
+    }
+    .vm-card:hover {
+      transform: translateY(-3px);
+    }
+    .vm-card-label {
+      font-family: var(--font-en);
+      font-size: 14px;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 1px;
+      color: var(--accent-blue);
+      margin-bottom: 20px;
+    }
+    .vm-card h3 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .vm-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 2;
+    }
+
+    /* ===== PROBLEMS / APPROACH ===== */
+    .approach { background: var(--white); }
+    .approach-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .approach-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+    .problem-card {
+      padding: 40px 32px;
+      background: var(--white);
+      border: 0.5px solid var(--border-light);
+      border-radius: 0;
+      transition: transform 0.3s;
+    }
+    .problem-card:hover {
+      transform: translateY(-3px);
+    }
+    .problem-number {
+      font-family: var(--font-en);
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(27, 32, 87, 0.07);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .problem-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .problem-card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-500);
+      line-height: 1.9;
+    }
+
+    /* Asterio Model highlight */
+    .model-highlight {
+      background: linear-gradient(160deg, var(--navy-dark), var(--navy));
+      border-radius: 0;
+      padding: 64px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .model-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(107, 184, 217, 0.08) 0%, transparent 70%);
+    }
+    .model-highlight-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .model-highlight h3 {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+    }
+    .model-highlight p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 2;
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    .model-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .model-feature {
+      padding: 24px 0;
+      border-top: 0.5px solid rgba(255,255,255,0.12);
+    }
+    .model-feature .feat-value {
+      font-family: var(--font-en);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--accent-cyan);
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+    .model-feature .feat-label {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .model-feature .feat-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    /* ===== COMPARISON TABLE ===== */
+    .comparison { background: var(--off-white); }
+    .comparison-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .comparison-header .section-subtitle { margin: 0 auto; }
+
+    .comparison-table-wrapper {
+      overflow-x: auto;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+    }
+    .comparison-table thead th {
+      padding: 18px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      border-bottom: 0.5px solid var(--gray-200);
+    }
+    .comparison-table thead th:first-child { color: var(--gray-400); }
+    .comparison-table thead th:nth-child(2) { color: var(--gray-500); }
+    .comparison-table thead th:nth-child(3) { background: var(--navy); color: var(--white); }
+    .comparison-table thead th:nth-child(4) { color: var(--accent-blue); font-style: italic; font-family: var(--font-en); }
+    .comparison-table tbody td {
+      padding: 16px 24px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-600);
+      border-bottom: 0.5px solid var(--gray-100);
+      vertical-align: middle;
+    }
+    .comparison-table tbody td:first-child {
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .comparison-table tbody td:nth-child(3) {
+      background: rgba(27, 32, 87, 0.02);
+      font-weight: 400;
+      color: var(--navy);
+    }
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ===== COMPANY ===== */
+    .company { background: var(--white); }
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .company-table {
+      width: 100%;
+    }
+    .company-table tr {
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .company-table th {
+      padding: 16px 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--navy);
+      text-align: left;
+      width: 110px;
+      vertical-align: top;
+      letter-spacing: 1px;
+    }
+    .company-table td {
+      padding: 16px 0 16px 24px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 1.9;
+    }
+
+    .company-message {
+      background: var(--off-white);
+      padding: 48px 44px;
+      border-radius: 0;
+      border-left: 0.5px solid var(--navy);
+    }
+    .company-message h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .company-message p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 2.1;
+    }
+    .company-message .quote-mark {
+      font-family: var(--font-en);
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+      opacity: 0.12;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: linear-gradient(160deg, var(--navy-dark), var(--navy));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(74, 142, 194, 0.06) 0%, transparent 70%);
+    }
+    .contact .section-inner { position: relative; z-index: 2; }
+    .contact-header { text-align: center; margin-bottom: 60px; }
+    .contact .section-label { color: var(--accent-cyan); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-subtitle { color: rgba(255,255,255,0.5); margin: 0 auto; }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .form-group label .required {
+      color: var(--accent-cyan);
+      margin-left: 4px;
+      font-size: 10px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 0;
+      color: var(--white);
+      font-family: var(--font-jp);
+      font-size: 14px;
+      font-weight: 300;
+      transition: all 0.3s;
+      outline: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent-cyan);
+      background: rgba(255,255,255,0.08);
+    }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+    .form-group select option { background: var(--navy); color: var(--white); }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-jp);
+      font-size: 13px;
+      font-weight: 400;
+      border: 0.5px solid rgba(255,255,255,0.3);
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.4s;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+    .submit-btn:hover {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-dark);
+      padding: 48px clamp(24px, 4vw, 64px) 32px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+    }
+    .footer-logo img {
+      height: 26px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.5;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      font-family: var(--font-en-sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 0.5px solid rgba(255,255,255,0.05);
+      font-family: var(--font-en-sans);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .vm-grid { grid-template-columns: 1fr; gap: 28px; }
+      .problems-grid { grid-template-columns: 1fr; }
+      .model-features { grid-template-columns: 1fr; gap: 16px; }
+      .model-highlight { padding: 40px 32px; }
+      .company-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--navy);
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        z-index: 150;
+      }
+      .nav-links.open a { font-size: 16px; color: var(--white); }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .vm-card { padding: 32px 24px; }
+      .comparison-table { font-size: 12px; }
+      .comparison-table thead th,
+      .comparison-table tbody td { padding: 12px 14px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><img src="asp-logo.png" alt="ASP | Asterio Strategy Partners"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#company">Company</a></li>
+        <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-label">Asterio Strategy Partners</p>
+      <h1 class="hero-title">
+        Build <em>strategic</em><br>thinking within.
+      </h1>
+      <p class="hero-subtitle">
+        戦略的思考のDNAを、組織の中に根づかせる。<br>
+        元BCGパートナー・ケースリーダーが、<br>
+        実プロジェクトを通じて自走する戦略組織を実現します。
+      </p>
+      <a href="#contact" class="hero-cta">お問い合わせ</a>
+    </div>
+    <div class="hero-scroll-indicator"></div>
+    <div class="hero-line"></div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="var(--off-white)" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="vision-mission" id="vision">
+    <div class="section-inner">
+      <div class="fade-in">
+        <p class="section-label">Vision & Mission</p>
+        <h2 class="section-title">私たちが目指す世界</h2>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card fade-in">
+          <p class="vm-card-label">Our Vision</p>
+          <h3>コンサル不要な企業が、<br>日本にもっと増えてほしい</h3>
+          <p>「コンサルティングファームに依存しない、自立した戦略組織」が増えること。外部の知見は参考程度に留め、自分たちで深く考え、仮説を立て、検証し、意思決定できる組織。そんな企業が日本にもっと増えれば、この国の競争力は確実に向上します。</p>
+        </div>
+        <div class="vm-card fade-in">
+          <p class="vm-card-label">Our Mission</p>
+          <h3>戦略的思考のDNAを、<br>組織の中に根づかせる</h3>
+          <p>BCGで培った戦略的思考の「型」と「教える技術」を駆使して、クライアント企業の社内に「戦略ファーム品質の思考力」を移植すること。「魚を与える」のではなく、「魚の釣り方を完璧に教える」ことに全力を注ぎます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="approach" id="approach">
+    <div class="section-inner">
+      <div class="approach-header fade-in">
+        <p class="section-label">Our Approach</p>
+        <h2 class="section-title">なぜ、Asterioモデルなのか</h2>
+        <p class="section-subtitle">戦略ファーム活用における構造的な限界を解決し、<br>プロジェクト成功と人材育成を同時に実現する業界初のモデル</p>
+      </div>
+
+      <div class="problems-grid">
+        <div class="problem-card fade-in">
+          <div class="problem-number">01</div>
+          <h4>ナレッジの社外流出</h4>
+          <p>年間数億円を投じても、プロジェクト終了と共に蓄積された知見は全てコンサルタントと共に去る。社内には「答え」だけが残り「考え方」は残らない。</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-number">02</div>
+          <h4>人材育成機会の逸失</h4>
+          <p>社内の優秀な人材が、最高レベルの戦略的思考に触れる機会を失っている。本来なら大きく成長できる人材が、「傍観者」のポジションに留まり続ける。</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-number">03</div>
+          <h4>実行段階での失速</h4>
+          <p>戦略立案は完璧でも、実行段階で「戦略的に考える人材」が社内にいないため、方向性がブレたり、修正が効かなくなる。</p>
+        </div>
+      </div>
+
+      <div class="model-highlight fade-in">
+        <div class="model-highlight-inner">
+          <h3>The Asterio Model</h3>
+          <p>単なる「答え」の提供ではなく、「答えを導き出す力」の育成に重点を置く。元BCGケースリーダーが実際のプロジェクトを通じて戦略的思考のDNAを移植し、コンサルに依存しない自走する戦略組織を実現します。</p>
+          <div class="model-features">
+            <div class="model-feature">
+              <div class="feat-value">1/3 - 1/6</div>
+              <div class="feat-label">コスト</div>
+              <div class="feat-desc">チーム派遣ではなくリーダー派遣のため、従来の戦略ファームと比較して大幅なコスト削減</div>
+            </div>
+            <div class="model-feature">
+              <div class="feat-value">100%</div>
+              <div class="feat-label">ナレッジ社内蓄積</div>
+              <div class="feat-desc">知見が全て社内に残り、競争優位の源泉として蓄積され続ける</div>
+            </div>
+            <div class="model-feature">
+              <div class="feat-value">6-12 months</div>
+              <div class="feat-label">深い伴走期間</div>
+              <div class="feat-desc">短期集中ではなく、根本的な変化を可能にする深い伴走で自走型組織へ進化</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="comparison">
+    <div class="section-inner">
+      <div class="comparison-header fade-in">
+        <p class="section-label">Comparison</p>
+        <h2 class="section-title">従来の戦略ファーム vs Asterioモデル</h2>
+      </div>
+      <div class="comparison-table-wrapper fade-in">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>従来の戦略ファーム</th>
+              <th>Asterioモデル</th>
+              <th>Long-term Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>コスト</td>
+              <td>チームのため非常に高額</td>
+              <td>戦略ファームの約1/3 - 1/6</td>
+              <td>コスト削減効果が継続</td>
+            </tr>
+            <tr>
+              <td>人材育成</td>
+              <td>ほぼゼロ（観察学習のみ）</td>
+              <td>戦略的思考力が大幅向上</td>
+              <td>無形資産として蓄積</td>
+            </tr>
+            <tr>
+              <td>ナレッジ蓄積</td>
+              <td>100%社外流出</td>
+              <td>100%社内蓄積</td>
+              <td>競争優位の源泉に</td>
+            </tr>
+            <tr>
+              <td>プロジェクト期間</td>
+              <td>3-6ヶ月（短期集中）</td>
+              <td>6-12ヶ月（深い伴走）</td>
+              <td>根本的変化が可能</td>
+            </tr>
+            <tr>
+              <td>実行力</td>
+              <td>外部依存体質が継続</td>
+              <td>自走型組織へ進化</td>
+              <td>持続的な変革力</td>
+            </tr>
+            <tr>
+              <td>将来の戦略ニーズ</td>
+              <td>毎回外注が必要</td>
+              <td>社内で完結可能</td>
+              <td>TCOが激減</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company -->
+  <section class="company" id="company">
+    <div class="section-inner">
+      <div class="fade-in">
+        <p class="section-label">Company</p>
+        <h2 class="section-title">会社概要</h2>
+      </div>
+      <div class="company-grid">
+        <div class="fade-in">
+          <table class="company-table">
+            <tr>
+              <th>会社名</th>
+              <td>株式会社アステリオストラテジーパートナーズ<br>(Asterio Strategy Partners)</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>東京都世田谷区玉川台2-32-1-1402</td>
+            </tr>
+            <tr>
+              <th>設立</th>
+              <td>2025年2月</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>代表取締役 白倉 誠</td>
+            </tr>
+            <tr>
+              <th>資本金</th>
+              <td>300万円</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>経営戦略に関するコンサルティング業務<br>企業の業務改善および組織改革のコンサルティング業務 他</td>
+            </tr>
+            <tr>
+              <th>連絡先</th>
+              <td>info@asterio-sp.com</td>
+            </tr>
+          </table>
+        </div>
+        <div class="company-message fade-in">
+          <div class="quote-mark">&ldquo;</div>
+          <h3>コンサルに頼らない、<br>強い組織をつくる</h3>
+          <p>私たちは、BCGで10年以上にわたり培ってきた戦略的思考の「型」を、クライアント企業の中に根づかせることに特化したファームです。答えを提供するのではなく、答えを導き出す力そのものを育てる。それが、Asterio Strategy Partnersの存在意義です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-header fade-in">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-subtitle">戦略組織の構築に関するご相談は、<br>お気軽にお問い合わせください。</p>
+      </div>
+      <form class="contact-form fade-in" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>お名前<span class="required">*</span></label>
+            <input type="text" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-group">
+            <label>会社名<span class="required">*</span></label>
+            <input type="text" placeholder="株式会社サンプル" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>メールアドレス<span class="required">*</span></label>
+            <input type="email" placeholder="example@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>電話番号</label>
+            <input type="tel" placeholder="03-1234-5678">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ご相談内容</label>
+          <select>
+            <option value="" disabled selected>選択してください</option>
+            <option>戦略組織の構築について</option>
+            <option>人材育成プログラムについて</option>
+            <option>Asterioモデルの詳細について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>メッセージ</label>
+          <textarea placeholder="ご相談内容の詳細をご記入ください"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="asp-logo.png" alt="ASP"></div>
+      <ul class="footer-links">
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#company">Company</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">&copy; 2026 Asterio Strategy Partners Inc. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('お問い合わせありがとうございます。担当者よりご連絡いたします。');
+    });
+  </script>
+</body>
+</html>
