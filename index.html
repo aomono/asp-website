@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>ASP | Asterio Strategy Partners</title>
   <meta name="description" content="戦略的思考のDNAを、組織の中に根づかせる。元BCGパートナー・ケースリーダーが、実プロジェクトを通じて自走する戦略組織を実現します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -984,43 +985,48 @@
         <h2 class="section-title">お問い合わせ</h2>
         <p class="section-subtitle">戦略組織の構築に関するご相談は、<br>お気軽にお問い合わせください。</p>
       </div>
-      <form class="contact-form fade-in" id="contactForm">
+      <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/xbdzkkva" method="POST">
+        <input type="hidden" name="_subject" value="【ASP】ウェブサイトからのお問い合わせ">
         <div class="form-row">
           <div class="form-group">
             <label>お名前<span class="required">*</span></label>
-            <input type="text" placeholder="山田 太郎" required>
+            <input type="text" name="name" placeholder="山田 太郎" required>
           </div>
           <div class="form-group">
             <label>会社名<span class="required">*</span></label>
-            <input type="text" placeholder="株式会社サンプル" required>
+            <input type="text" name="company" placeholder="株式会社サンプル" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>メールアドレス<span class="required">*</span></label>
-            <input type="email" placeholder="example@company.com" required>
+            <input type="email" name="email" placeholder="example@company.com" required>
           </div>
           <div class="form-group">
             <label>電話番号</label>
-            <input type="tel" placeholder="03-1234-5678">
+            <input type="tel" name="phone" placeholder="03-1234-5678">
           </div>
         </div>
         <div class="form-group">
           <label>ご相談内容</label>
-          <select>
+          <select name="category">
             <option value="" disabled selected>選択してください</option>
-            <option>戦略組織の構築について</option>
-            <option>人材育成プログラムについて</option>
-            <option>Asterioモデルの詳細について</option>
-            <option>その他</option>
+            <option value="戦略組織の構築について">戦略組織の構築について</option>
+            <option value="人材育成プログラムについて">人材育成プログラムについて</option>
+            <option value="Asterioモデルの詳細について">Asterioモデルの詳細について</option>
+            <option value="その他">その他</option>
           </select>
         </div>
         <div class="form-group">
           <label>メッセージ</label>
-          <textarea placeholder="ご相談内容の詳細をご記入ください"></textarea>
+          <textarea name="message" placeholder="ご相談内容の詳細をご記入ください"></textarea>
         </div>
-        <button type="submit" class="submit-btn">送信する</button>
+        <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
       </form>
+      <div id="thankYou" class="fade-in" style="display:none; text-align:center; padding:60px 0;">
+        <p style="font-size:1.5rem; color:var(--white); font-family:'Cormorant Garamond',serif; margin-bottom:16px;">Thank you.</p>
+        <p style="color:rgba(255,255,255,0.6); font-size:0.95rem;">お問い合わせありがとうございます。<br>担当者より折り返しご連絡いたします。</p>
+      </div>
     </div>
   </section>
 
@@ -1066,10 +1072,35 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Form submission
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
+    // Form submission via Formspree (AJAX)
+    const contactForm = document.getElementById('contactForm');
+    const thankYou = document.getElementById('thankYou');
+    const submitBtn = document.getElementById('submitBtn');
+
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('お問い合わせありがとうございます。担当者よりご連絡いたします。');
+      submitBtn.textContent = '送信中...';
+      submitBtn.disabled = true;
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          contactForm.style.display = 'none';
+          thankYou.style.display = 'block';
+          thankYou.classList.add('visible');
+        } else {
+          submitBtn.textContent = '送信する';
+          submitBtn.disabled = false;
+          alert('送信に失敗しました。しばらく経ってからもう一度お試しください。');
+        }
+      }).catch(() => {
+        submitBtn.textContent = '送信する';
+        submitBtn.disabled = false;
+        alert('送信に失敗しました。ネットワーク接続をご確認ください。');
+      });
     });
   </script>
 </body>
