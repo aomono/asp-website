@@ -1,0 +1,130 @@
+[
+  {
+    "id": "unten-001",
+    "name": "運転",
+    "name_en": "driving",
+    "tags": [
+      "車",
+      "運転",
+      "移動",
+      "ドライブ",
+      "行動"
+    ],
+    "category": "行動",
+    "description": "車を運転する人",
+    "files": {
+      "svg": "/icons/files/unten-001.svg",
+      "png": "/icons/files/unten-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  },
+  {
+    "id": "kosodate-001",
+    "name": "子育て",
+    "name_en": "parenting",
+    "tags": [
+      "子育て",
+      "育児",
+      "親子",
+      "家族",
+      "子ども"
+    ],
+    "category": "家族",
+    "description": "子どもと手をつなぐ親",
+    "files": {
+      "svg": "/icons/files/kosodate-001.svg",
+      "png": "/icons/files/kosodate-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  },
+  {
+    "id": "ryoko-001",
+    "name": "旅行",
+    "name_en": "travel",
+    "tags": [
+      "旅行",
+      "出張",
+      "スーツケース",
+      "飛行機",
+      "移動"
+    ],
+    "category": "行動",
+    "description": "スーツケースと飛行機（旅行・出張）",
+    "files": {
+      "svg": "/icons/files/ryoko-001.svg",
+      "png": "/icons/files/ryoko-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  },
+  {
+    "id": "kaimono-001",
+    "name": "買い物",
+    "name_en": "shopping",
+    "tags": [
+      "買い物",
+      "ショッピング",
+      "EC",
+      "オンライン",
+      "スマホ",
+      "決済"
+    ],
+    "category": "行動",
+    "description": "スマホで買い物（オンラインショッピング）",
+    "files": {
+      "svg": "/icons/files/kaimono-001.svg",
+      "png": "/icons/files/kaimono-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  },
+  {
+    "id": "hanbai-001",
+    "name": "販売チャネル",
+    "name_en": "sales channel",
+    "tags": [
+      "販売",
+      "店舗",
+      "チャネル",
+      "小売",
+      "流通"
+    ],
+    "category": "ビジネス",
+    "description": "店舗（販売チャネル）",
+    "files": {
+      "svg": "/icons/files/hanbai-001.svg",
+      "png": "/icons/files/hanbai-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  },
+  {
+    "id": "igyoshu-001",
+    "name": "異業種の取引",
+    "name_en": "cross-industry deal",
+    "tags": [
+      "取引",
+      "異業種",
+      "連携",
+      "提携",
+      "B2B",
+      "協業"
+    ],
+    "category": "ビジネス",
+    "description": "異業種間の取引・連携",
+    "files": {
+      "svg": "/icons/files/igyoshu-001.svg",
+      "png": "/icons/files/igyoshu-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
+  }
+]

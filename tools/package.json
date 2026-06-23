@@ -1,0 +1,6 @@
+{
+  "name": "icon-museum-tools",
+  "private": true,
+  "type": "module",
+  "dependencies": { "@neplex/vectorizer": "^0.1.0" }
+}
