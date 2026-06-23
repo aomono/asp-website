@@ -51,6 +51,9 @@
   .icard .thumb{width:96px;height:96px;display:grid;place-items:center;margin-bottom:14px;padding:6px;color:var(--ic-main)}
   .icard .thumb svg{max-width:84px;max-height:84px;width:auto;height:auto}
   .icard .thumb img{max-width:84px;max-height:84px;object-fit:contain}
+  /* 絵(イラスト)はカード幅いっぱい＆大きめに表示 */
+  .icard .thumb.illu{width:100%;height:132px;padding:0;margin-bottom:12px}
+  .icard .thumb.illu img{max-width:100%;max-height:132px;border-radius:10px}
   .typebar{display:flex;align-items:center;gap:10px;padding:16px 0 0}
   .seg{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px}
   .seg button{font:inherit;font-size:13px;font-weight:700;padding:6px 16px;border:none;background:none;border-radius:999px;cursor:pointer;color:#41566b}
@@ -172,7 +175,7 @@ function typeOf(ic){ return ic.type || (isIcon(ic) ? 'icon' : 'illustration'); }
 function render(){
   const q=qEl.value.trim();
   const list=ICONS.filter(ic=>(activeType==='all'||typeOf(ic)===activeType)&&(activeCat==='すべて'||ic.category===activeCat)&&matches(ic,q));
-  grid.innerHTML=list.map(ic=>`<div class="icard" data-id="${ic.id}"><div class="thumb">${thumbHtml(ic)}</div><div class="nm">${ic.name}</div><div class="nm-en">${ic.name_en||''}</div></div>`).join('');
+  grid.innerHTML=list.map(ic=>`<div class="icard" data-id="${ic.id}"><div class="thumb${isIcon(ic)?'':' illu'}">${thumbHtml(ic)}</div><div class="nm">${ic.name}</div><div class="nm-en">${ic.name_en||''}</div></div>`).join('');
   emptyEl.style.display=list.length?'none':'block';
   document.querySelector('.count')?.remove();
   const c=document.createElement('span'); c.className='count'; c.textContent=`${list.length} / ${ICONS.length} 件`; chipsEl.appendChild(c);
