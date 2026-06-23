@@ -50,6 +50,13 @@
   .icard:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfe0f0}
   .icard .thumb{width:96px;height:96px;display:grid;place-items:center;margin-bottom:14px;padding:6px;color:var(--ic-main)}
   .icard .thumb svg{max-width:84px;max-height:84px;width:auto;height:auto}
+  .icard .thumb img{max-width:84px;max-height:84px;object-fit:contain}
+  .typebar{display:flex;align-items:center;gap:10px;padding:16px 0 0}
+  .seg{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .seg button{font:inherit;font-size:13px;font-weight:700;padding:6px 16px;border:none;background:none;border-radius:999px;cursor:pointer;color:#41566b}
+  .seg button.on{background:var(--navy);color:#fff}
+  .badge-type{font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;margin-left:7px;vertical-align:middle}
+  .badge-type.illu{background:#fde9d0;color:#9a5b14}
   .icard .nm{font-weight:700;font-size:14px}
   .icard .nm-en{font-size:11px;color:var(--muted);font-family:"Plus Jakarta Sans";text-transform:lowercase}
   .empty{text-align:center;color:var(--muted);padding:80px 0}
@@ -62,6 +69,7 @@
   .sheet-top{display:grid;grid-template-columns:220px 1fr;gap:0}
   .preview{background:var(--bg);display:grid;place-items:center;padding:30px;border-right:1px solid var(--line);color:var(--ic-main)}
   .preview svg{max-width:150px;max-height:150px;width:auto;height:auto}
+  .preview img{max-width:160px;max-height:160px;object-fit:contain}
   .meta{padding:26px 26px 22px;position:relative}
   .meta h2{font-size:22px;font-weight:800;margin-bottom:2px}
   .meta .en2{font-size:13px;color:var(--muted);font-family:"Plus Jakarta Sans";margin-bottom:14px}
@@ -110,6 +118,13 @@
 </header>
 
 <main class="wrap">
+  <div class="typebar">
+    <div class="seg" id="types">
+      <button data-type="all" class="on">すべて</button>
+      <button data-type="icon">アイコン</button>
+      <button data-type="illustration">絵</button>
+    </div>
+  </div>
   <div class="toolbar" id="chips"></div>
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" style="display:none">該当するアイコンが見つかりませんでした。</div>
@@ -130,6 +145,10 @@ const picker = document.getElementById('picker');
 
 let ICONS = [];
 let activeCat = 'すべて';
+let activeType = 'all';
+
+const isIcon = (ic) => !!(ic.files && ic.files.svg);
+const thumbHtml = (ic) => isIcon(ic) ? (ic._svg || '') : `<img loading="lazy" src="${ic.files.png}" alt="${ic.name}">`;
 let mainColor = '#1f4e79', accentColor = '#9cc4e8';
 const DEFAULT_MAIN = '#1f4e79', DEFAULT_ACCENT = '#9cc4e8';
 
@@ -149,10 +168,11 @@ function setMain(hex){ mainColor=hex; accentColor = hex.toLowerCase()===DEFAULT_
 
 function matches(ic,q){ if(!q) return true; const hay=[ic.name,ic.name_en,ic.category,ic.description,...(ic.tags||[])].join(' ').toLowerCase(); return q.toLowerCase().split(/\s+/).filter(Boolean).every(t=>hay.includes(t)); }
 
+function typeOf(ic){ return ic.type || (isIcon(ic) ? 'icon' : 'illustration'); }
 function render(){
   const q=qEl.value.trim();
-  const list=ICONS.filter(ic=>(activeCat==='すべて'||ic.category===activeCat)&&matches(ic,q));
-  grid.innerHTML=list.map(ic=>`<div class="icard" data-id="${ic.id}"><div class="thumb">${ic._svg||''}</div><div class="nm">${ic.name}</div><div class="nm-en">${ic.name_en||''}</div></div>`).join('');
+  const list=ICONS.filter(ic=>(activeType==='all'||typeOf(ic)===activeType)&&(activeCat==='すべて'||ic.category===activeCat)&&matches(ic,q));
+  grid.innerHTML=list.map(ic=>`<div class="icard" data-id="${ic.id}"><div class="thumb">${thumbHtml(ic)}</div><div class="nm">${ic.name}</div><div class="nm-en">${ic.name_en||''}</div></div>`).join('');
   emptyEl.style.display=list.length?'none':'block';
   document.querySelector('.count')?.remove();
   const c=document.createElement('span'); c.className='count'; c.textContent=`${list.length} / ${ICONS.length} 件`; chipsEl.appendChild(c);
@@ -168,9 +188,9 @@ function bakedSvg(ic){
 function openModal(ic){
   sheet.innerHTML=`<button class="close" id="x">×</button>
     <div class="sheet-top">
-      <div class="preview">${ic._svg||''}</div>
+      <div class="preview">${thumbHtml(ic)}</div>
       <div class="meta">
-        <h2>${ic.name}</h2><div class="en2">${ic.name_en||''}</div>
+        <h2>${ic.name}${typeOf(ic)==='illustration'?'<span class="badge-type illu">絵</span>':''}</h2><div class="en2">${ic.name_en||''}</div>
         ${ic.category?`<span class="cat">${ic.category}</span>`:''}
         ${ic.description?`<div class="desc">${ic.description}</div>`:''}
         <div class="tags">${(ic.tags||[]).map(t=>`<span class="t">${t}</span>`).join('')}</div>
@@ -179,7 +199,7 @@ function openModal(ic){
           ${ic.files.svg?`<button class="btn" data-act="dlsvg">SVG DL</button>`:''}
           <button class="btn" data-act="dlpng">PNG DL</button>
         </div>
-        <p style="font-size:11.5px;color:var(--muted);margin-top:10px">SVGは選択中の色で書き出します。元の色のまま使う場合は「既定」に戻してDL。</p>
+        ${isIcon(ic)?'<p style="font-size:11.5px;color:var(--muted);margin-top:10px">SVGは選択中の色で書き出します。元の色のまま使う場合は「既定」に戻してDL。</p>':'<p style="font-size:11.5px;color:var(--muted);margin-top:10px">絵（イラスト）はフルカラーのPNGです。再配色には対応していません。</p>'}
       </div>
     </div>
     <div class="foot">id: ${ic.id} ・ source: ${ic.source||'-'} ・ ${ic.brand_neutral?'brand-neutral':''} ・ ${ic.created_at||''}</div>`;
@@ -203,6 +223,13 @@ async function action(act,ic){
 grid.addEventListener('click',e=>{ const c=e.target.closest('.icard'); if(c) openModal(ICONS.find(i=>i.id===c.dataset.id)); });
 chipsEl.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(c){ activeCat=c.dataset.cat; renderChips(); render(); } });
 qEl.addEventListener('input',render);
+document.getElementById('types').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-type]'); if(!b) return;
+  activeType=b.dataset.type;
+  document.querySelectorAll('#types button').forEach(x=>x.classList.toggle('on', x.dataset.type===activeType));
+  document.getElementById('recolor').style.display = activeType==='illustration' ? 'none' : '';
+  render();
+});
 document.getElementById('recolor').addEventListener('click',e=>{ const s=e.target.closest('.sw'); if(s) setMain(s.dataset.c); });
 picker.addEventListener('input',e=>setMain(e.target.value));
 document.getElementById('reset').addEventListener('click',()=>setMain(DEFAULT_MAIN));
