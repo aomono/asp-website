@@ -1,10 +1,11 @@
 // 初期投入: 既存6アイコンを台帳に登録する（register-icon 経由でSVGも生成）。
+// ソース=白背景の元PNG（tools/sources/）→ 透過PNG + 2トーンSVG を icons/files/ に生成。
 // 実行: node tools/seed.mjs
 import { registerIcon } from './register-icon.mjs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const FILES = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'icons', 'files');
+const FILES = resolve(dirname(fileURLToPath(import.meta.url)), 'sources');
 const D = '2026-06-23';
 
 const seeds = [

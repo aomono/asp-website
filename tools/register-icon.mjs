@@ -1,4 +1,5 @@
-// register-icon ― Asterio icon museum 登録ツール（§4 案A: PNG正本 + vtracerでSVG）
+// register-icon ― Asterio icon museum 登録ツール
+// Gemini等の白背景PNG → 透過PNG + 再配色可能な2トーンSVG（濃色=currentColor / 淡色=var(--icon-accent)）→ 台帳追記
 // 使い方(CLI):
 //   node tools/register-icon.mjs --png <path> --id unten-001 --name 運転 \
 //     --name-en driving --tags 車,運転,移動 --category 行動 --description "車を運転する人"
@@ -6,32 +7,12 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  vectorize,
-  ColorMode,
-  Hierarchical,
-  PathSimplifyMode,
-} from '@neplex/vectorizer';
+import { to2tone } from './vectorize-2tone.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const FILES_DIR = join(ROOT, 'icons', 'files');
 const LEDGER = join(ROOT, 'icons', 'icons.json');
-
-// アイコン向けに調整（過剰なパス分割を抑制）。
-const VECTORIZE_CONFIG = {
-  colorMode: ColorMode.Color,
-  colorPrecision: 6,
-  filterSpeckle: 4,
-  spliceThreshold: 45,
-  cornerThreshold: 60,
-  hierarchical: Hierarchical.Stacked,
-  mode: PathSimplifyMode.Spline,
-  layerDifference: 16,
-  lengthThreshold: 5,
-  maxIterations: 2,
-  pathPrecision: 5,
-};
 
 async function readLedger() {
   try {
@@ -60,23 +41,22 @@ export async function registerIcon({
   if (!id) throw new Error('id is required');
   if (!name) throw new Error('name is required');
 
-  const pngBuf = await readFile(pngPath);
+  const srcBuf = await readFile(pngPath);
   await mkdir(FILES_DIR, { recursive: true });
 
-  // PNG（正本）を配置
-  await writeFile(join(FILES_DIR, `${id}.png`), pngBuf);
-
-  // 案A: PNG -> SVG ベクター化（ベストエフォート。失敗時はPNGのみ登録）
   const files = { png: `/icons/files/${id}.png` };
   try {
-    const svg = await vectorize(pngBuf, VECTORIZE_CONFIG);
-    await writeFile(join(FILES_DIR, `${id}.svg`), svg, 'utf8');
+    // 白背景PNG → 透過PNG（正本）＋ 再配色可能2トーンSVG
+    const { transparentPng, svg } = await to2tone(srcBuf);
+    await writeFile(join(FILES_DIR, `${id}.png`), transparentPng);
+    await writeFile(join(FILES_DIR, `${id}.svg`), svg);
     files.svg = `/icons/files/${id}.svg`;
   } catch (e) {
-    console.warn(`[warn] SVG変換失敗 ${id}: ${e.message} → PNGのみで登録`);
+    // 変換失敗時は元PNGのみ登録（warning）
+    console.warn(`[warn] 2トーン変換失敗 ${id}: ${e.message} → 元PNGのみ登録`);
+    await writeFile(join(FILES_DIR, `${id}.png`), srcBuf);
   }
 
-  // 台帳に追記（同idは置換）
   const ledger = await readLedger();
   const entry = {
     id,

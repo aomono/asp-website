@@ -13,6 +13,8 @@
     --navy:#1f4e79; --navy-d:#163a5a; --accent:#4a90c2; --ink:#16222e;
     --muted:#67788a; --bg:#f3f6fa; --line:#e3eaf2; --card:#fff;
     --shadow:0 14px 34px -18px rgba(20,40,70,.3);
+    /* アイコン再配色用（JSで変更） */
+    --ic-main:#1f4e79; --ic-accent:#9cc4e8;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -26,12 +28,18 @@
   .logo .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-family:"Plus Jakarta Sans"}
   .logo b{font-weight:800;font-size:17px;letter-spacing:.2px}
   .logo span{display:block;font-size:10.5px;color:var(--muted);letter-spacing:2.5px;font-family:"Plus Jakarta Sans"}
-  .search{position:relative;flex:1;max-width:440px}
+  .search{position:relative;flex:1;max-width:380px}
   .search input{width:100%;font:inherit;font-size:15px;padding:12px 16px 12px 42px;border:1.5px solid var(--line);border-radius:999px;background:#fbfdff}
   .search input:focus{outline:none;border-color:var(--accent)}
   .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}
 
-  .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:20px 0 6px}
+  .recolor{display:flex;align-items:center;gap:8px}
+  .recolor .sw{width:24px;height:24px;border-radius:7px;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer}
+  .recolor .sw.on{box-shadow:0 0 0 2px var(--navy)}
+  .recolor input[type=color]{width:30px;height:30px;padding:0;border:1px solid var(--line);border-radius:8px;background:none;cursor:pointer}
+  .recolor .rs{font-size:12px;color:var(--muted);cursor:pointer;border:none;background:none;text-decoration:underline}
+
+  .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 0 6px}
   .chip{font-size:13px;font-weight:700;padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:#41566b;transition:.15s}
   .chip:hover{border-color:var(--accent)}
   .chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -40,19 +48,20 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:18px;padding:18px 0 60px}
   .icard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;transition:.18s;display:flex;flex-direction:column;align-items:center;text-align:center}
   .icard:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfe0f0}
-  .icard .thumb{width:96px;height:96px;display:grid;place-items:center;margin-bottom:14px;padding:6px}
-  .icard .thumb img{max-width:84px;max-height:84px;object-fit:contain}
+  .icard .thumb{width:96px;height:96px;display:grid;place-items:center;margin-bottom:14px;padding:6px;color:var(--ic-main)}
+  .icard .thumb svg{max-width:84px;max-height:84px;width:auto;height:auto}
   .icard .nm{font-weight:700;font-size:14px}
   .icard .nm-en{font-size:11px;color:var(--muted);font-family:"Plus Jakarta Sans";text-transform:lowercase}
   .empty{text-align:center;color:var(--muted);padding:80px 0}
+  /* 全アイコンに再配色を適用 */
+  .thumb,.preview{ --icon-accent:var(--ic-accent); }
 
-  /* modal */
   .modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,28,44,.55)}
   .modal.open{display:flex}
   .sheet{background:#fff;border-radius:22px;max-width:720px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 30px 70px -20px rgba(0,0,0,.5)}
   .sheet-top{display:grid;grid-template-columns:220px 1fr;gap:0}
-  .preview{background:var(--bg);display:grid;place-items:center;padding:30px;border-right:1px solid var(--line)}
-  .preview img{max-width:160px;max-height:160px;object-fit:contain}
+  .preview{background:var(--bg);display:grid;place-items:center;padding:30px;border-right:1px solid var(--line);color:var(--ic-main)}
+  .preview svg{max-width:150px;max-height:150px;width:auto;height:auto}
   .meta{padding:26px 26px 22px;position:relative}
   .meta h2{font-size:22px;font-weight:800;margin-bottom:2px}
   .meta .en2{font-size:13px;color:var(--muted);font-family:"Plus Jakarta Sans";margin-bottom:14px}
@@ -70,7 +79,7 @@
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:11px 20px;border-radius:10px;font-size:13.5px;opacity:0;transition:.25s;z-index:80}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-  @media(max-width:620px){
+  @media(max-width:680px){
     .head{flex-wrap:wrap}
     .search{max-width:none;order:3;flex-basis:100%}
     .sheet-top{grid-template-columns:1fr}
@@ -89,6 +98,14 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <input id="q" type="search" placeholder="アイコンを検索（例：旅行 / car / 取引）" autocomplete="off" />
     </div>
+    <div class="recolor" id="recolor" title="アイコンの色を変更">
+      <span class="sw" data-c="#1f4e79" style="background:#1f4e79"></span>
+      <span class="sw" data-c="#16222e" style="background:#16222e"></span>
+      <span class="sw" data-c="#475569" style="background:#475569"></span>
+      <span class="sw" data-c="#0f766e" style="background:#0f766e"></span>
+      <input type="color" id="picker" value="#1f4e79" />
+      <button class="rs" id="reset">既定</button>
+    </div>
   </div>
 </header>
 
@@ -98,9 +115,7 @@
   <div class="empty" id="empty" style="display:none">該当するアイコンが見つかりませんでした。</div>
 </main>
 
-<div class="modal" id="modal">
-  <div class="sheet" id="sheet"></div>
-</div>
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -111,48 +126,51 @@ const emptyEl = document.getElementById('empty');
 const modal = document.getElementById('modal');
 const sheet = document.getElementById('sheet');
 const toastEl = document.getElementById('toast');
+const picker = document.getElementById('picker');
 
 let ICONS = [];
 let activeCat = 'すべて';
+let mainColor = '#1f4e79', accentColor = '#9cc4e8';
+const DEFAULT_MAIN = '#1f4e79', DEFAULT_ACCENT = '#9cc4e8';
 
-const thumbSrc = (ic) => ic.files.svg || ic.files.png;
+function toast(m){ toastEl.textContent=m; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'),1600); }
 
-function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'), 1600); }
+// 色ユーティリティ：淡色アクセントを主色から導出（白と混ぜる）
+function hexToRgb(h){ h=h.replace('#',''); return [0,2,4].map(i=>parseInt(h.substr(i,2),16)); }
+function rgbToHex(r,g,b){ return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join(''); }
+function lighten(hex, amt){ const [r,g,b]=hexToRgb(hex); const m=v=>v+(255-v)*amt; return rgbToHex(m(r),m(g),m(b)); }
 
-function matches(ic, q){
-  if(!q) return true;
-  const hay = [ic.name, ic.name_en, ic.category, ic.description, ...(ic.tags||[])].join(' ').toLowerCase();
-  return q.toLowerCase().split(/\s+/).filter(Boolean).every(term => hay.includes(term));
+function applyColors(){
+  document.documentElement.style.setProperty('--ic-main', mainColor);
+  document.documentElement.style.setProperty('--ic-accent', accentColor);
+  document.querySelectorAll('.recolor .sw').forEach(s=>s.classList.toggle('on', s.dataset.c.toLowerCase()===mainColor.toLowerCase()));
 }
+function setMain(hex){ mainColor=hex; accentColor = hex.toLowerCase()===DEFAULT_MAIN ? DEFAULT_ACCENT : lighten(hex,0.6); picker.value=hex; applyColors(); }
+
+function matches(ic,q){ if(!q) return true; const hay=[ic.name,ic.name_en,ic.category,ic.description,...(ic.tags||[])].join(' ').toLowerCase(); return q.toLowerCase().split(/\s+/).filter(Boolean).every(t=>hay.includes(t)); }
 
 function render(){
-  const q = qEl.value.trim();
-  const list = ICONS.filter(ic => (activeCat==='すべて' || ic.category===activeCat) && matches(ic, q));
-  grid.innerHTML = list.map(ic => `
-    <div class="icard" data-id="${ic.id}">
-      <div class="thumb"><img loading="lazy" src="${thumbSrc(ic)}" alt="${ic.name}"></div>
-      <div class="nm">${ic.name}</div>
-      <div class="nm-en">${ic.name_en||''}</div>
-    </div>`).join('');
-  emptyEl.style.display = list.length ? 'none' : 'block';
+  const q=qEl.value.trim();
+  const list=ICONS.filter(ic=>(activeCat==='すべて'||ic.category===activeCat)&&matches(ic,q));
+  grid.innerHTML=list.map(ic=>`<div class="icard" data-id="${ic.id}"><div class="thumb">${ic._svg||''}</div><div class="nm">${ic.name}</div><div class="nm-en">${ic.name_en||''}</div></div>`).join('');
+  emptyEl.style.display=list.length?'none':'block';
   document.querySelector('.count')?.remove();
-  const c = document.createElement('span'); c.className='count'; c.textContent = `${list.length} / ${ICONS.length} 件`;
-  chipsEl.appendChild(c);
+  const c=document.createElement('span'); c.className='count'; c.textContent=`${list.length} / ${ICONS.length} 件`; chipsEl.appendChild(c);
 }
-
 function renderChips(){
-  const cats = ['すべて', ...Array.from(new Set(ICONS.map(i=>i.category).filter(Boolean)))];
-  chipsEl.innerHTML = cats.map(c => `<button class="chip${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
+  const cats=['すべて',...Array.from(new Set(ICONS.map(i=>i.category).filter(Boolean)))];
+  chipsEl.innerHTML=cats.map(c=>`<button class="chip${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
 }
 
+function bakedSvg(ic){
+  return (ic._svg||'').replace(/currentColor/g, mainColor).replace(/var\(--icon-accent[^)]*\)/g, accentColor);
+}
 function openModal(ic){
-  sheet.innerHTML = `
-    <button class="close" id="x">×</button>
+  sheet.innerHTML=`<button class="close" id="x">×</button>
     <div class="sheet-top">
-      <div class="preview"><img src="${thumbSrc(ic)}" alt="${ic.name}"></div>
+      <div class="preview">${ic._svg||''}</div>
       <div class="meta">
-        <h2>${ic.name}</h2>
-        <div class="en2">${ic.name_en||''}</div>
+        <h2>${ic.name}</h2><div class="en2">${ic.name_en||''}</div>
         ${ic.category?`<span class="cat">${ic.category}</span>`:''}
         ${ic.description?`<div class="desc">${ic.description}</div>`:''}
         <div class="tags">${(ic.tags||[]).map(t=>`<span class="t">${t}</span>`).join('')}</div>
@@ -161,34 +179,43 @@ function openModal(ic){
           ${ic.files.svg?`<button class="btn" data-act="dlsvg">SVG DL</button>`:''}
           <button class="btn" data-act="dlpng">PNG DL</button>
         </div>
+        <p style="font-size:11.5px;color:var(--muted);margin-top:10px">SVGは選択中の色で書き出します。元の色のまま使う場合は「既定」に戻してDL。</p>
       </div>
     </div>
     <div class="foot">id: ${ic.id} ・ source: ${ic.source||'-'} ・ ${ic.brand_neutral?'brand-neutral':''} ・ ${ic.created_at||''}</div>`;
   modal.classList.add('open');
-  document.getElementById('x').onclick = closeModal;
-  sheet.querySelectorAll('[data-act]').forEach(b => b.onclick = () => action(b.dataset.act, ic));
+  document.getElementById('x').onclick=closeModal;
+  sheet.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>action(b.dataset.act,ic));
 }
 function closeModal(){ modal.classList.remove('open'); }
-modal.onclick = (e) => { if(e.target===modal) closeModal(); };
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+modal.onclick=e=>{ if(e.target===modal) closeModal(); };
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-async function action(act, ic){
-  if(act==='copy'){
-    try { const svg = await (await fetch(ic.files.svg)).text(); await navigator.clipboard.writeText(svg); toast('SVGコードをコピーしました'); }
-    catch { toast('コピーに失敗しました'); }
-  } else if(act==='dlsvg'){ download(ic.files.svg, ic.id+'.svg'); }
-  else if(act==='dlpng'){ download(ic.files.png, ic.id+'.png'); }
+function dlBlob(content, type, filename){
+  const url=URL.createObjectURL(new Blob([content],{type})); const a=document.createElement('a'); a.href=url; a.download=filename; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
 }
-function download(url, filename){
-  const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+async function action(act,ic){
+  if(act==='copy'){ try{ await navigator.clipboard.writeText(bakedSvg(ic)); toast('SVGコードをコピーしました（選択中の色）'); }catch{ toast('コピーに失敗しました'); } }
+  else if(act==='dlsvg'){ dlBlob(bakedSvg(ic),'image/svg+xml',ic.id+'.svg'); }
+  else if(act==='dlpng'){ const a=document.createElement('a'); a.href=ic.files.png; a.download=ic.id+'.png'; document.body.appendChild(a); a.click(); a.remove(); }
 }
 
-grid.addEventListener('click', e => { const c = e.target.closest('.icard'); if(c){ openModal(ICONS.find(i=>i.id===c.dataset.id)); } });
-chipsEl.addEventListener('click', e => { const c = e.target.closest('.chip'); if(c){ activeCat = c.dataset.cat; renderChips(); render(); } });
-qEl.addEventListener('input', render);
+grid.addEventListener('click',e=>{ const c=e.target.closest('.icard'); if(c) openModal(ICONS.find(i=>i.id===c.dataset.id)); });
+chipsEl.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(c){ activeCat=c.dataset.cat; renderChips(); render(); } });
+qEl.addEventListener('input',render);
+document.getElementById('recolor').addEventListener('click',e=>{ const s=e.target.closest('.sw'); if(s) setMain(s.dataset.c); });
+picker.addEventListener('input',e=>setMain(e.target.value));
+document.getElementById('reset').addEventListener('click',()=>setMain(DEFAULT_MAIN));
 
-fetch('./icons.json').then(r=>r.json()).then(data => { ICONS = data; renderChips(); render(); })
-  .catch(()=>{ emptyEl.textContent='台帳(icons.json)の読み込みに失敗しました。'; emptyEl.style.display='block'; });
+(async ()=>{
+  try{
+    ICONS = await (await fetch('./icons.json')).json();
+    await Promise.all(ICONS.map(async ic=>{
+      if(ic.files.svg){ try{ ic._svg = await (await fetch(ic.files.svg)).text(); }catch{ ic._svg=''; } }
+    }));
+    applyColors(); renderChips(); render();
+  }catch{ emptyEl.textContent='台帳(icons.json)の読み込みに失敗しました。'; emptyEl.style.display='block'; }
+})();
 </script>
 </body>
 </html>
