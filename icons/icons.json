@@ -1,6 +1,7 @@
 [
   {
     "id": "unten-001",
+    "type": "icon",
     "name": "運転",
     "name_en": "driving",
     "tags": [
@@ -22,6 +23,7 @@
   },
   {
     "id": "kosodate-001",
+    "type": "icon",
     "name": "子育て",
     "name_en": "parenting",
     "tags": [
@@ -43,6 +45,7 @@
   },
   {
     "id": "ryoko-001",
+    "type": "icon",
     "name": "旅行",
     "name_en": "travel",
     "tags": [
@@ -64,6 +67,7 @@
   },
   {
     "id": "kaimono-001",
+    "type": "icon",
     "name": "買い物",
     "name_en": "shopping",
     "tags": [
@@ -86,6 +90,7 @@
   },
   {
     "id": "hanbai-001",
+    "type": "icon",
     "name": "販売チャネル",
     "name_en": "sales channel",
     "tags": [
@@ -107,6 +112,7 @@
   },
   {
     "id": "igyoshu-001",
+    "type": "icon",
     "name": "異業種の取引",
     "name_en": "cross-industry deal",
     "tags": [
