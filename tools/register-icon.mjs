@@ -1,13 +1,17 @@
 // register-icon ― Asterio icon museum 登録ツール
-// Gemini等の白背景PNG → 透過PNG + 再配色可能な2トーンSVG（濃色=currentColor / 淡色=var(--icon-accent)）→ 台帳追記
+// type=icon : Gemini等のPNG → 透過PNG + 再配色可能な2トーンSVG（濃色=currentColor / 淡色=var(--icon-accent)）→ 台帳追記
+// type=illustration(絵) : フルカラーPNGをそのまま登録（SVG化なし／再配色なし）
 // 使い方(CLI):
 //   node tools/register-icon.mjs --png <path> --id unten-001 --name 運転 \
-//     --name-en driving --tags 車,運転,移動 --category 行動 --description "車を運転する人"
+//     --name-en driving --tags 車,運転,移動 --category 行動 --description "車を運転する人" --type icon
+//   node tools/register-icon.mjs --png <path> --id kurashi-001 --name 暮らしに宿る保険 \
+//     --tags 保険,生活 --category 絵 --type illustration
 // プログラムからは registerIcon({...}) を呼ぶ（image-gen 側フックの接続点）。
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { to2tone } from './vectorize-2tone.mjs';
+// 注: vectorize-2tone（sharp / @neplex/vectorizer 依存）は type=icon の時だけ動的importする。
+//     絵(illustration)登録は重い依存なしで動く。
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -36,6 +40,7 @@ export async function registerIcon({
   description = '',
   source = 'gemini',
   createdAt,
+  type = 'icon', // 'icon' | 'illustration'（絵: PNGのみ・SVG化なし）
 }) {
   if (!pngPath) throw new Error('pngPath is required');
   if (!id) throw new Error('id is required');
@@ -45,21 +50,28 @@ export async function registerIcon({
   await mkdir(FILES_DIR, { recursive: true });
 
   const files = { png: `/icons/files/${id}.png` };
-  try {
-    // 白背景PNG → 透過PNG（正本）＋ 再配色可能2トーンSVG
-    const { transparentPng, svg } = await to2tone(srcBuf);
-    await writeFile(join(FILES_DIR, `${id}.png`), transparentPng);
-    await writeFile(join(FILES_DIR, `${id}.svg`), svg);
-    files.svg = `/icons/files/${id}.svg`;
-  } catch (e) {
-    // 変換失敗時は元PNGのみ登録（warning）
-    console.warn(`[warn] 2トーン変換失敗 ${id}: ${e.message} → 元PNGのみ登録`);
+  if (type === 'icon') {
+    try {
+      // 白背景PNG → 透過PNG（正本）＋ 再配色可能2トーンSVG
+      const { to2tone } = await import('./vectorize-2tone.mjs');
+      const { transparentPng, svg } = await to2tone(srcBuf);
+      await writeFile(join(FILES_DIR, `${id}.png`), transparentPng);
+      await writeFile(join(FILES_DIR, `${id}.svg`), svg);
+      files.svg = `/icons/files/${id}.svg`;
+    } catch (e) {
+      // 変換失敗時は元PNGのみ登録（warning）
+      console.warn(`[warn] 2トーン変換失敗 ${id}: ${e.message} → 元PNGのみ登録`);
+      await writeFile(join(FILES_DIR, `${id}.png`), srcBuf);
+    }
+  } else {
+    // illustration（絵）：フルカラーPNGをそのまま登録（SVG化・再配色なし）
     await writeFile(join(FILES_DIR, `${id}.png`), srcBuf);
   }
 
   const ledger = await readLedger();
   const entry = {
     id,
+    type,
     name,
     name_en: nameEn,
     tags,
@@ -100,6 +112,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     description: a.description,
     source: a.source,
     createdAt: a['created-at'],
+    type: a.type || 'icon',
   }).catch((e) => {
     console.error('[error]', e.message);
     process.exit(1);
