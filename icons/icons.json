@@ -156,5 +156,28 @@
     "source": "gemini",
     "brand_neutral": true,
     "created_at": "2026-06-23"
+  },
+  {
+    "id": "handshake-001",
+    "type": "icon",
+    "name": "握手",
+    "name_en": "handshake",
+    "tags": [
+      "握手",
+      "合意",
+      "提携",
+      "協業",
+      "契約",
+      "ビジネス"
+    ],
+    "category": "ビジネス",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/handshake-001.svg",
+      "png": "/icons/files/handshake-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
   }
 ]
