@@ -132,5 +132,29 @@
     "source": "gemini",
     "brand_neutral": true,
     "created_at": "2026-06-23"
+  },
+  {
+    "id": "kurashi-hoken-001",
+    "type": "illustration",
+    "name": "暮らしに宿る保険",
+    "name_en": "insurance-in-daily-life",
+    "tags": [
+      "保険",
+      "暮らし",
+      "生活",
+      "運転",
+      "子育て",
+      "旅行",
+      "買い物",
+      "イラスト"
+    ],
+    "category": "生活",
+    "description": "",
+    "files": {
+      "png": "/icons/files/kurashi-hoken-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-23"
   }
 ]
