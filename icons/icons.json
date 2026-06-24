@@ -179,5 +179,28 @@
     "source": "gemini",
     "brand_neutral": true,
     "created_at": "2026-06-23"
+  },
+  {
+    "id": "untapped-whitespace-001",
+    "type": "illustration",
+    "name": "未踏の空白",
+    "name_en": "untapped-whitespace",
+    "tags": [
+      "空白",
+      "ホワイトスペース",
+      "未踏",
+      "戦略",
+      "機会",
+      "個社最適化",
+      "イラスト"
+    ],
+    "category": "戦略",
+    "description": "",
+    "files": {
+      "png": "/icons/files/untapped-whitespace-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-06-24"
   }
 ]
