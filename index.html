@@ -57,11 +57,11 @@ img{max-width:100%;display:block}
   justify-content:space-between;padding:22px var(--pad);transition:padding .4s,background .4s,border-color .4s;
   border-bottom:1px solid transparent}
 .nav.scrolled{padding:14px var(--pad);background:rgba(8,10,26,.72);backdrop-filter:blur(14px);border-color:var(--line-d)}
-.brand{display:flex;align-items:center;gap:13px}
-.brand .mark{width:32px;height:32px;border:1px solid var(--mist);border-radius:2px;position:relative;opacity:.9;flex:none}
-.brand .mark::before,.brand .mark::after{content:"";position:absolute;background:var(--paper)}
-.brand .mark::before{width:1px;height:15px;left:10px;top:8px}.brand .mark::after{width:11px;height:1px;left:10px;top:15px}
-.brand b{font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.15em;color:var(--paper)}
+.brand{display:flex;align-items:center}
+.brand .logo{height:34px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.96;transition:opacity .3s}
+.brand:hover .logo{opacity:1}
+.nav.scrolled .brand .logo{height:30px}
+.footer .brand .logo{height:32px}
 .nav .links{display:flex;gap:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
 .nav .links a{position:relative;transition:color .3s}
 .nav .links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--red);transition:width .3s}
@@ -227,7 +227,7 @@ form button:hover{background:var(--red);color:#fff;letter-spacing:.22em}
 <body>
 
 <nav class="nav" id="nav">
-  <a class="brand" href="#hero" aria-label="ASP home"><span class="mark"></span><b>ASP</b></a>
+  <a class="brand" href="#hero" aria-label="ASP | Asterio Strategy Partners"><img class="logo" src="asp-logo.png" alt="ASP | Asterio Strategy Partners" width="700" height="166" /></a>
   <div class="links" id="navlinks">
     <a href="#problem">Problem</a>
     <a href="#model">Model</a>
@@ -417,7 +417,7 @@ form button:hover{background:var(--red);color:#fff;letter-spacing:.22em}
 
 <footer class="footer">
   <div class="fw">
-    <a class="brand" href="#hero"><span class="mark"></span><b>ASP</b></a>
+    <a class="brand" href="#hero" aria-label="ASP | Asterio Strategy Partners"><img class="logo" src="asp-logo.png" alt="ASP | Asterio Strategy Partners" width="700" height="166" /></a>
     <div class="flinks">
       <a href="#problem">Problem</a><a href="#model">Model</a><a href="#vision">Vision</a><a href="#company">Company</a><a href="#contact">Contact</a>
     </div>
