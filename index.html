@@ -1,1111 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>ASP | Asterio Strategy Partners</title>
-  <meta name="description" content="戦略的思考のDNAを、組織の中に根づかせる。元トップ戦略ファームのパートナー・ケースリーダーが、実プロジェクトを通じて自走する戦略組織を実現します。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ASP | Asterio Strategy Partners — 戦略的思考のDNAを、組織の中に根づかせる</title>
+<meta name="description" content="元トップ戦略ファームのパートナー・ケースリーダーが、実プロジェクトを通じて自走する戦略組織を実現します。答えを渡すのではなく、答えを導き出す“構造”を移植するファーム、Asterio Strategy Partners。" />
+<link rel="canonical" href="https://www.asterio-sp.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Asterio Strategy Partners" />
+<meta property="og:title" content="ASP | Asterio Strategy Partners" />
+<meta property="og:description" content="戦略的思考のDNAを、組織の中に根づかせる。答えを渡すのではなく、答えを導き出す“構造”を移植する戦略ファーム。" />
+<meta property="og:url" content="https://www.asterio-sp.com/" />
+<meta property="og:image" content="https://www.asterio-sp.com/asp-logo.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/asp-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Asterio Strategy Partners Inc.","alternateName":"株式会社アステリオストラテジーパートナーズ","url":"https://www.asterio-sp.com/","email":"info@asterio-sp.com","foundingDate":"2025-02","address":{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"東京都","addressLocality":"世田谷区","streetAddress":"玉川台2-32-1-1402"},"description":"経営戦略に関するコンサルティング。戦略的思考のDNAを組織に移植し、コンサルに依存しない自走型戦略組織を実現する。"}
+</script>
+<style>
+:root{
+  --ink:#080A1A; --ink-2:#0F1338; --navy:#1B2057; --navy-l:#2A3178;
+  --paper:#F5F4EF; --paper-2:#ECEBE3; --mist:#B9BEDA; --slate:#5A6079;
+  --line-d:rgba(185,190,218,.14); --line-l:rgba(20,24,58,.12);
+  --red:#C41E3A; --red-soft:#E0566E;
+  --serif:"Cormorant Garamond",serif; --jp:"Noto Serif JP",serif; --mono:"IBM Plex Mono",monospace;
+  --pad:clamp(22px,7vw,110px); --maxw:1320px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{background:var(--ink);color:var(--paper);font-family:var(--jp);-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;line-height:1.6}
+::selection{background:var(--red);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--slate);display:inline-flex;align-items:center;gap:14px}
+.eyebrow.on-dark{color:var(--mist)}
+.eyebrow .rule{width:52px;height:1px;background:var(--red);display:inline-block}
 
-    :root {
-      --navy: #1B2057;
-      --navy-light: #2A3178;
-      --navy-dark: #0F1338;
-      --accent-blue: #4A8EC2;
-      --accent-cyan: #6BB8D9;
-      --accent-red: #C41E3A;
-      --white: #FFFFFF;
-      --off-white: #F7F8FC;
-      --gray-50: #F9FAFB;
-      --gray-100: #F3F4F6;
-      --gray-200: #E5E7EB;
-      --gray-300: #D1D5DB;
-      --gray-400: #9CA3AF;
-      --gray-500: #6B7280;
-      --gray-600: #4B5563;
-      --gray-700: #374151;
-      --gray-800: #1F2937;
-      --font-en: 'Cormorant Garamond', 'Georgia', serif;
-      --font-en-sans: 'Inter', sans-serif;
-      --font-jp: 'Noto Serif JP', '游明朝', 'Yu Mincho', 'ヒラギノ明朝', serif;
-      --border-light: rgba(27, 32, 87, 0.08);
-    }
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+[data-stagger] .reveal.in{transition-delay:calc(var(--i,0)*90ms)}
 
-    html { scroll-behavior: smooth; }
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
+  justify-content:space-between;padding:22px var(--pad);transition:padding .4s,background .4s,border-color .4s;
+  border-bottom:1px solid transparent}
+.nav.scrolled{padding:14px var(--pad);background:rgba(8,10,26,.72);backdrop-filter:blur(14px);border-color:var(--line-d)}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mark{width:32px;height:32px;border:1px solid var(--mist);border-radius:2px;position:relative;opacity:.9;flex:none}
+.brand .mark::before,.brand .mark::after{content:"";position:absolute;background:var(--paper)}
+.brand .mark::before{width:1px;height:15px;left:10px;top:8px}.brand .mark::after{width:11px;height:1px;left:10px;top:15px}
+.brand b{font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.15em;color:var(--paper)}
+.nav .links{display:flex;gap:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.nav .links a{position:relative;transition:color .3s}
+.nav .links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--red);transition:width .3s}
+.nav .links a:hover{color:var(--paper)}.nav .links a:hover::after{width:100%}
+.nav .cta{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);
+  border:1px solid var(--line-d);padding:10px 18px;border-radius:2px;transition:.3s}
+.nav .cta:hover{border-color:var(--red);color:var(--red-soft)}
+.burger{display:none;flex-direction:column;gap:5px;width:34px;height:34px;justify-content:center;align-items:center;background:none;border:none;cursor:pointer}
+.burger span{width:22px;height:1.5px;background:var(--paper);transition:.3s}
 
-    body {
-      font-family: var(--font-jp);
-      color: var(--gray-800);
-      background: var(--white);
-      line-height: 1.9;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+/* ============ HERO ============ */
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:var(--ink)}
+#tree{position:absolute;inset:0;z-index:1}
+.hero .vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(120% 90% at 62% 42%,transparent 42%,rgba(4,5,15,.6) 100%)}
+.hero .grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-copy{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;justify-content:center;
+  padding:0 var(--pad);max-width:var(--maxw);margin:0 auto;pointer-events:none}
+.hero .eyebrow{margin-bottom:30px;opacity:0;animation:rise 1s .3s forwards}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.6vw,112px);line-height:1;letter-spacing:-.012em;max-width:15ch;color:var(--paper)}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(110%);animation:up 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .l:nth-child(1) span{animation-delay:.45s}.hero h1 .l:nth-child(2) span{animation-delay:.58s}
+.hero h1 em{font-style:italic;color:var(--red-soft)}
+.hero .sub{font-weight:300;font-size:clamp(15px,1.5vw,19px);line-height:1.95;color:var(--mist);max-width:36ch;margin-top:34px;letter-spacing:.02em;opacity:0;animation:rise 1.1s 1s forwards}
+.hero-foot{position:absolute;left:0;right:0;bottom:28px;z-index:6;display:flex;justify-content:space-between;padding:0 var(--pad);max-width:var(--maxw);margin:0 auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+.hero-foot .scroll{display:flex;align-items:center;gap:12px;opacity:0;animation:rise 1s 1.4s forwards}
+.hero-foot .scroll .bar{width:44px;height:1px;background:linear-gradient(90deg,var(--red),transparent);position:relative;overflow:hidden}
+.hero-foot .scroll .bar::after{content:"";position:absolute;inset:0;width:14px;background:var(--paper);animation:sweep 2.4s linear infinite}
+.hero-foot .idx{opacity:0;animation:rise 1s 1.4s forwards}
+@keyframes up{to{transform:translateY(0)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes sweep{from{left:-14px}to{left:44px}}
 
-    /* ===== NAVIGATION ===== */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 0 clamp(24px, 4vw, 64px);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    nav.scrolled {
-      background: rgba(27, 32, 87, 0.97);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
-    }
-    .nav-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 80px;
-    }
-    .nav-logo {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    .nav-logo img {
-      height: 34px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      transition: opacity 0.3s;
-    }
-    .nav-logo img:hover { opacity: 0.85; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-family: var(--font-en-sans);
-      font-size: 13px;
-      font-weight: 400;
-      transition: color 0.3s;
-      letter-spacing: 1px;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-contact-btn {
-      border: 0.5px solid rgba(255,255,255,0.3);
-      padding: 8px 28px;
-      border-radius: 0;
-      transition: all 0.3s;
-    }
-    .nav-contact-btn:hover {
-      background: var(--white);
-      color: var(--navy) !important;
-      border-color: var(--white);
-    }
+/* ============ SECTION SHELL ============ */
+.dark{background:var(--ink);color:var(--paper)}
+.light{background:var(--paper);color:var(--ink-2)}
+.sec-pad{padding:clamp(90px,13vh,170px) 0;position:relative}
+.sec-head{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,58px);line-height:1.12;letter-spacing:-.01em;margin-top:22px}
+.light .sec-title{color:var(--ink-2)}.dark .sec-title{color:var(--paper)}
+.lead{font-weight:300;font-size:clamp(15px,1.35vw,18px);line-height:2;color:var(--slate);max-width:52ch;margin-top:26px}
+.dark .lead{color:var(--mist)}
 
-    /* Mobile menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-      z-index: 200;
-      background: none;
-      border: none;
-      padding: 8px;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--white);
-      transition: all 0.3s;
-    }
+/* PROBLEM */
+.problems{max-width:var(--maxw);margin:56px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-d)}
+.problem{padding:44px 34px 46px;border-right:1px solid var(--line-d);position:relative}
+.problem:last-child{border-right:none}
+.problem .no{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--red-soft)}
+.problem h3{font-family:var(--jp);font-weight:500;font-size:20px;line-height:1.5;margin:20px 0 16px;color:var(--paper)}
+.problem p{font-weight:300;font-size:14.5px;line-height:1.95;color:var(--mist)}
+.problem .barline{position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--red);transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.problem.in .barline{width:38%}
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding: 0 clamp(24px, 4vw, 64px);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 200%;
-      background: radial-gradient(ellipse, rgba(74, 142, 194, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
+/* MODEL */
+.model-grid{max-width:var(--maxw);margin:60px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.model-viz{aspect-ratio:1/.9;position:relative;border:1px solid var(--line-l);border-radius:4px;overflow:hidden;background:linear-gradient(160deg,#fff,#eceae1)}
+.model-viz canvas{width:100%;height:100%;display:block}
+.model-copy blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.2vw,40px);line-height:1.28;letter-spacing:-.01em;color:var(--ink-2)}
+.model-copy blockquote em{font-style:italic;color:var(--red)}
+.model-copy p{font-weight:300;font-size:15.5px;line-height:2;color:var(--slate);margin-top:26px;max-width:44ch}
 
-    /* Thin decorative line */
-    .hero-line {
-      position: absolute;
-      top: 50%;
-      right: 8%;
-      width: 1px;
-      height: 200px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
-      transform: translateY(-50%);
-    }
+/* NUMBERS */
+.numbers{max-width:var(--maxw);margin:56px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-d)}
+.num{padding:48px 30px;border-right:1px solid var(--line-d)}
+.num:last-child{border-right:none}
+.num .big{font-family:var(--serif);font-weight:500;font-size:clamp(52px,7vw,92px);line-height:1;color:var(--paper);letter-spacing:-.02em}
+.num .big em{font-style:normal;color:var(--red-soft);font-size:.5em;vertical-align:.12em;margin:0 2px}
+.num .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-top:20px}
+.num .d{font-weight:300;font-size:14px;line-height:1.9;color:var(--slate);margin-top:12px}
 
-    .hero-wave {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .hero-wave svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 2px);
-      height: 60px;
-    }
+/* COMPARISON */
+.cmp{max-width:var(--maxw);margin:52px auto 0;padding:0 var(--pad)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:20px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-l)}
+.cmp thead th{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);font-weight:500;border-bottom:1px solid var(--ink-2)}
+.cmp thead th.asp{color:var(--red)}
+.cmp td.axis{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--slate);white-space:nowrap;width:1%}
+.cmp td.old{color:var(--slate);font-weight:300}
+.cmp td.asp{color:var(--ink-2);font-weight:500}
+.cmp tbody tr{transition:background .3s}
+.cmp tbody tr:hover{background:rgba(196,30,58,.035)}
+.cmp .asp-col{box-shadow:inset 2px 0 0 rgba(196,30,58,.55)}
 
-    .hero-content {
-      max-width: 1000px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-label {
-      font-family: var(--font-en-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 36px;
-      opacity: 0;
-      animation: fadeUp 1s 0.3s forwards;
-    }
-    .hero-title {
-      font-family: var(--font-en);
-      font-size: clamp(38px, 5.5vw, 76px);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 32px;
-      letter-spacing: -0.5px;
-      opacity: 0;
-      animation: fadeUp 1s 0.5s forwards;
-    }
-    .hero-title em {
-      font-style: italic;
-      font-weight: 600;
-      color: var(--accent-cyan);
-    }
-    .hero-subtitle {
-      font-family: var(--font-jp);
-      font-size: clamp(14px, 1.6vw, 16px);
-      font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      line-height: 2.2;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      opacity: 0;
-      animation: fadeUp 1s 0.7s forwards;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      padding: 14px 48px;
-      font-family: var(--font-jp);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 0.5px solid rgba(255,255,255,0.3);
-      transition: all 0.4s;
-      opacity: 0;
-      animation: fadeUp 1s 0.9s forwards;
-    }
-    .hero-cta:hover {
-      background: var(--white);
-      color: var(--navy);
-      border-color: var(--white);
-    }
-    .hero-scroll-indicator {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-      animation: scrollPulse 2.5s infinite;
-    }
+/* VISION */
+.vm{max-width:var(--maxw);margin:56px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px)}
+.vm .card{border-top:1px solid var(--line-d);padding-top:34px}
+.vm .card .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--red-soft)}
+.vm .card h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,36px);line-height:1.35;margin:18px 0 20px;color:var(--paper)}
+.vm .card p{font-weight:300;font-size:15px;line-height:2.05;color:var(--mist);max-width:40ch}
 
-    /* ===== SECTIONS COMMON ===== */
-    section { padding: clamp(80px, 10vw, 140px) clamp(24px, 4vw, 64px); }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-family: var(--font-en-sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--accent-blue);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: var(--font-jp);
-      font-size: clamp(26px, 3vw, 38px);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .section-subtitle {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--gray-500);
-      line-height: 2;
-      max-width: 600px;
-    }
+/* COMPANY */
+.company-grid{max-width:var(--maxw);margin:56px auto 0;padding:0 var(--pad);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,80px)}
+.facts .row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-l)}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);padding-top:3px}
+.facts dd{font-weight:400;font-size:15px;line-height:1.85;color:var(--ink-2)}
+.facts dd .en{color:var(--slate);font-size:13px}
+.officers .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:16px}
+.officer{padding:20px 0;border-bottom:1px solid var(--line-l)}
+.officer .role{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--red);text-transform:uppercase}
+.officer .name{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--ink-2);display:block;margin-top:4px}
+.pull{margin-top:38px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(20px,2.4vw,30px);line-height:1.5;color:var(--ink-2)}
+.pull::before{content:"“";color:var(--red);margin-right:.08em}
 
-    /* Fade-in on scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* CONTACT */
+.contact{overflow:hidden}
+.contact #tree-c{position:absolute;inset:0;z-index:1;opacity:.45}
+.contact .inner{position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,90px);align-items:start}
+.contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,58px);line-height:1.12;color:var(--paper);margin-top:22px}
+form{display:flex;flex-direction:column;gap:20px}
+form label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);display:flex;flex-direction:column;gap:9px}
+form label .req{color:var(--red-soft)}
+form input,form select,form textarea{font:inherit;font-size:15px;color:var(--paper);background:rgba(185,190,218,.05);
+  border:1px solid var(--line-d);border-radius:3px;padding:13px 15px;transition:border-color .3s,background .3s}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--red-soft);background:rgba(185,190,218,.08)}
+form select{appearance:none;cursor:pointer}
+form select option{background:var(--ink-2);color:var(--paper)}
+form textarea{resize:vertical;min-height:120px;font-family:var(--jp)}
+form button{align-self:flex-start;margin-top:6px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);background:var(--paper);border:none;border-radius:3px;padding:15px 34px;cursor:pointer;transition:.3s}
+form button:hover{background:var(--red);color:#fff;letter-spacing:.22em}
+.form-note{font-size:12px;color:var(--slate);font-weight:300;letter-spacing:0;font-family:var(--jp);text-transform:none}
+.thanks{display:none;padding:30px;border:1px solid var(--red);border-radius:4px;background:rgba(196,30,58,.06)}
+.thanks.show{display:block}
+.thanks b{font-family:var(--serif);font-size:22px;color:var(--paper);display:block;margin-bottom:8px}
+.thanks p{color:var(--mist);font-weight:300}
+.contact-alt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mist);margin-top:28px}
+.contact-alt a{color:var(--red-soft)}
 
-    /* ===== VISION / MISSION ===== */
-    .vision-mission { background: var(--off-white); }
-    .vm-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-top: 56px;
-    }
-    .vm-card {
-      background: var(--white);
-      padding: 48px 44px;
-      border-radius: 0;
-      box-shadow: none;
-      border-top: 0.5px solid var(--navy);
-      transition: transform 0.3s;
-    }
-    .vm-card:hover {
-      transform: translateY(-3px);
-    }
-    .vm-card-label {
-      font-family: var(--font-en);
-      font-size: 14px;
-      font-weight: 500;
-      font-style: italic;
-      letter-spacing: 1px;
-      color: var(--accent-blue);
-      margin-bottom: 20px;
-    }
-    .vm-card h3 {
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-    .vm-card p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--gray-600);
-      line-height: 2;
-    }
+/* FOOTER */
+.footer{background:var(--ink);border-top:1px solid var(--line-d);padding:54px var(--pad) 40px}
+.footer .fw{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.footer .flinks{display:flex;gap:26px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.footer .flinks a:hover{color:var(--red-soft)}
+.footer .copy{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--slate)}
 
-    /* ===== PROBLEMS / APPROACH ===== */
-    .approach { background: var(--white); }
-    .approach-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
-    .approach-header .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .problems-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-bottom: 80px;
-    }
-    .problem-card {
-      padding: 40px 32px;
-      background: var(--white);
-      border: 0.5px solid var(--border-light);
-      border-radius: 0;
-      transition: transform 0.3s;
-    }
-    .problem-card:hover {
-      transform: translateY(-3px);
-    }
-    .problem-number {
-      font-family: var(--font-en);
-      font-size: 48px;
-      font-weight: 300;
-      color: rgba(27, 32, 87, 0.07);
-      margin-bottom: 16px;
-      line-height: 1;
-    }
-    .problem-card h4 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 12px;
-      padding-bottom: 12px;
-      border-bottom: 0.5px solid var(--border-light);
-    }
-    .problem-card p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--gray-500);
-      line-height: 1.9;
-    }
-
-    /* Asterio Model highlight */
-    .model-highlight {
-      background: linear-gradient(160deg, var(--navy-dark), var(--navy));
-      border-radius: 0;
-      padding: 64px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .model-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 60%;
-      height: 200%;
-      background: radial-gradient(ellipse, rgba(107, 184, 217, 0.08) 0%, transparent 70%);
-    }
-    .model-highlight-inner {
-      position: relative;
-      z-index: 2;
-    }
-    .model-highlight h3 {
-      font-family: var(--font-en);
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 300;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.3;
-      letter-spacing: 0.5px;
-    }
-    .model-highlight p {
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      line-height: 2;
-      max-width: 680px;
-      margin-bottom: 48px;
-    }
-
-    .model-features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .model-feature {
-      padding: 24px 0;
-      border-top: 0.5px solid rgba(255,255,255,0.12);
-    }
-    .model-feature .feat-value {
-      font-family: var(--font-en);
-      font-size: 32px;
-      font-weight: 300;
-      color: var(--accent-cyan);
-      margin-bottom: 4px;
-      letter-spacing: -0.5px;
-    }
-    .model-feature .feat-label {
-      font-size: 12px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    .model-feature .feat-desc {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.8;
-    }
-
-    /* ===== COMPARISON TABLE ===== */
-    .comparison { background: var(--off-white); }
-    .comparison-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .comparison-header .section-subtitle { margin: 0 auto; }
-
-    .comparison-table-wrapper {
-      overflow-x: auto;
-    }
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-    }
-    .comparison-table thead th {
-      padding: 18px 24px;
-      font-size: 13px;
-      font-weight: 500;
-      text-align: left;
-      border-bottom: 0.5px solid var(--gray-200);
-    }
-    .comparison-table thead th:first-child { color: var(--gray-400); }
-    .comparison-table thead th:nth-child(2) { color: var(--gray-500); }
-    .comparison-table thead th:nth-child(3) { background: var(--navy); color: var(--white); }
-    .comparison-table thead th:nth-child(4) { color: var(--accent-blue); font-style: italic; font-family: var(--font-en); }
-    .comparison-table tbody td {
-      padding: 16px 24px;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--gray-600);
-      border-bottom: 0.5px solid var(--gray-100);
-      vertical-align: middle;
-    }
-    .comparison-table tbody td:first-child {
-      font-weight: 500;
-      color: var(--navy);
-    }
-    .comparison-table tbody td:nth-child(3) {
-      background: rgba(27, 32, 87, 0.02);
-      font-weight: 400;
-      color: var(--navy);
-    }
-    .comparison-table tbody tr:last-child td { border-bottom: none; }
-
-    /* ===== COMPANY ===== */
-    .company { background: var(--white); }
-    .company-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      margin-top: 56px;
-      align-items: start;
-    }
-    .company-table {
-      width: 100%;
-    }
-    .company-table tr {
-      border-bottom: 0.5px solid var(--border-light);
-    }
-    .company-table th {
-      padding: 16px 0;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--navy);
-      text-align: left;
-      width: 110px;
-      vertical-align: top;
-      letter-spacing: 1px;
-    }
-    .company-table td {
-      padding: 16px 0 16px 24px;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--gray-600);
-      line-height: 1.9;
-    }
-
-    .company-message {
-      background: var(--off-white);
-      padding: 48px 44px;
-      border-radius: 0;
-      border-left: 0.5px solid var(--navy);
-    }
-    .company-message h3 {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .company-message p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--gray-600);
-      line-height: 2.1;
-    }
-    .company-message .quote-mark {
-      font-family: var(--font-en);
-      font-size: 72px;
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 8px;
-      opacity: 0.12;
-    }
-
-    /* ===== CONTACT ===== */
-    .contact {
-      background: linear-gradient(160deg, var(--navy-dark), var(--navy));
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 200%;
-      background: radial-gradient(ellipse, rgba(74, 142, 194, 0.06) 0%, transparent 70%);
-    }
-    .contact .section-inner { position: relative; z-index: 2; }
-    .contact-header { text-align: center; margin-bottom: 60px; }
-    .contact .section-label { color: var(--accent-cyan); }
-    .contact .section-title { color: var(--white); }
-    .contact .section-subtitle { color: rgba(255,255,255,0.5); margin: 0 auto; }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 24px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    .form-group label .required {
-      color: var(--accent-cyan);
-      margin-left: 4px;
-      font-size: 10px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(255,255,255,0.12);
-      border-radius: 0;
-      color: var(--white);
-      font-family: var(--font-jp);
-      font-size: 14px;
-      font-weight: 300;
-      transition: all 0.3s;
-      outline: none;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.2);
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--accent-cyan);
-      background: rgba(255,255,255,0.08);
-    }
-    .form-group textarea { min-height: 140px; resize: vertical; }
-    .form-group select option { background: var(--navy); color: var(--white); }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .submit-btn {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: transparent;
-      color: var(--white);
-      font-family: var(--font-jp);
-      font-size: 13px;
-      font-weight: 400;
-      border: 0.5px solid rgba(255,255,255,0.3);
-      border-radius: 0;
-      cursor: pointer;
-      transition: all 0.4s;
-      letter-spacing: 2px;
-      margin-top: 8px;
-    }
-    .submit-btn:hover {
-      background: var(--white);
-      color: var(--navy);
-      border-color: var(--white);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--navy-dark);
-      padding: 48px clamp(24px, 4vw, 64px) 32px;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-logo {
-      display: flex;
-      align-items: center;
-    }
-    .footer-logo img {
-      height: 26px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.5;
-    }
-    .footer-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      font-family: var(--font-en-sans);
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: rgba(255,255,255,0.7); }
-    .footer-copy {
-      text-align: center;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 0.5px solid rgba(255,255,255,0.05);
-      font-family: var(--font-en-sans);
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.8; }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .vm-grid { grid-template-columns: 1fr; gap: 28px; }
-      .problems-grid { grid-template-columns: 1fr; }
-      .model-features { grid-template-columns: 1fr; gap: 16px; }
-      .model-highlight { padding: 40px 32px; }
-      .company-grid { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: var(--navy);
-        justify-content: center;
-        align-items: center;
-        gap: 28px;
-        z-index: 150;
-      }
-      .nav-links.open a { font-size: 16px; color: var(--white); }
-      .hamburger { display: flex; }
-      .form-row { grid-template-columns: 1fr; }
-      .vm-card { padding: 32px 24px; }
-      .comparison-table { font-size: 12px; }
-      .comparison-table thead th,
-      .comparison-table tbody td { padding: 12px 14px; }
-      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:900px){
+  .problems,.numbers{grid-template-columns:1fr}
+  .problem,.num{border-right:none;border-bottom:1px solid var(--line-d)}
+  .problem:last-child,.num:last-child{border-bottom:none}
+  .model-grid,.vm,.company-grid,.contact .inner{grid-template-columns:1fr}
+  .model-viz{aspect-ratio:1.5/1;max-height:320px}
+}
+@media(max-width:720px){
+  .nav .links,.nav .cta{display:none}
+  .burger{display:flex}
+  .nav.open .links{display:flex;position:fixed;inset:60px 0 auto 0;flex-direction:column;gap:0;
+    background:rgba(8,10,26,.97);backdrop-filter:blur(16px);padding:8px var(--pad) 24px;border-bottom:1px solid var(--line-d)}
+  .nav.open .links a{padding:16px 0;border-bottom:1px solid var(--line-d);font-size:13px}
+  #tree{opacity:.5}
+  .hero-copy{justify-content:flex-end;padding-bottom:15vh}
+  .facts .row{grid-template-columns:110px 1fr;gap:14px}
+  .cmp{overflow-x:auto}.cmp table{min-width:540px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo"><img src="asp-logo.png" alt="ASP | Asterio Strategy Partners"></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#company">Company</a></li>
-        <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+<nav class="nav" id="nav">
+  <a class="brand" href="#hero" aria-label="ASP home"><span class="mark"></span><b>ASP</b></a>
+  <div class="links" id="navlinks">
+    <a href="#problem">Problem</a>
+    <a href="#model">Model</a>
+    <a href="#vision">Vision</a>
+    <a href="#company">Company</a>
+  </div>
+  <a class="cta" href="#contact">Contact</a>
+  <button class="burger" id="burger" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="hero" id="hero">
+  <canvas id="tree" aria-hidden="true"></canvas>
+  <div class="vignette"></div><div class="grain"></div>
+  <div class="hero-copy">
+    <div class="eyebrow on-dark"><span class="rule"></span>Asterio Strategy Partners</div>
+    <h1>
+      <span class="l"><span>Build strategic</span></span>
+      <span class="l"><span>thinking <em>within.</em></span></span>
+    </h1>
+    <p class="sub">戦略的思考のDNAを、組織の中に根づかせる。<br />答えを渡すのではなく、答えを導き出す“構造”を移植する。</p>
+  </div>
+  <div class="hero-foot">
+    <span class="scroll"><span class="bar"></span>Scroll to think</span>
+    <span class="idx">01 — Vision</span>
+  </div>
+</header>
+
+<main>
+<section class="dark sec-pad" id="problem">
+  <div class="sec-head reveal">
+    <div class="eyebrow on-dark"><span class="rule"></span>The Problem</div>
+    <h2 class="sec-title">戦略ファーム活用の、<br />構造的な三つの限界。</h2>
+    <p class="lead">年間数億円を投じても、プロジェクトが終われば知見は去る。答えは残っても、考え方は残らない。従来モデルには、成果と育成を両立できない構造的な壁がある。</p>
+  </div>
+  <div class="problems" data-stagger>
+    <div class="problem reveal" style="--i:0"><span class="barline"></span>
+      <div class="no">01</div><h3>ナレッジの社外流出</h3>
+      <p>数億円を投じても、蓄積された知見はプロジェクト終了と共にコンサルタントと去る。社内には「答え」だけが残り、「考え方」は残らない。</p>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <p class="hero-label">Asterio Strategy Partners</p>
-      <h1 class="hero-title">
-        Build <em>strategic</em><br>thinking within.
-      </h1>
-      <p class="hero-subtitle">
-        戦略的思考のDNAを、組織の中に根づかせる。<br>
-        元トップ戦略ファームのパートナー・ケースリーダーが、<br>
-        実プロジェクトを通じて自走する戦略組織を実現します。
-      </p>
-      <a href="#contact" class="hero-cta">お問い合わせ</a>
+    <div class="problem reveal" style="--i:1"><span class="barline"></span>
+      <div class="no">02</div><h3>人材育成機会の逸失</h3>
+      <p>社内の優秀な人材が、最高レベルの戦略的思考に触れる機会を失う。大きく成長できる人材が「傍観者」の位置に留まり続ける。</p>
     </div>
-    <div class="hero-scroll-indicator"></div>
-    <div class="hero-line"></div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-        <path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="var(--off-white)" />
-      </svg>
+    <div class="problem reveal" style="--i:2"><span class="barline"></span>
+      <div class="no">03</div><h3>実行段階での失速</h3>
+      <p>戦略立案は完璧でも、実行段階で「戦略的に考える人材」が社内にいない。方向性がブレ、修正が効かなくなる。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Vision & Mission -->
-  <section class="vision-mission" id="vision">
-    <div class="section-inner">
-      <div class="fade-in">
-        <p class="section-label">Vision & Mission</p>
-        <h2 class="section-title">私たちが目指す世界</h2>
-      </div>
-      <div class="vm-grid">
-        <div class="vm-card fade-in">
-          <p class="vm-card-label">Our Vision</p>
-          <h3>コンサル不要な企業が、<br>日本にもっと増えてほしい</h3>
-          <p>「コンサルティングファームに依存しない、自立した戦略組織」が増えること。外部の知見は参考程度に留め、自分たちで深く考え、仮説を立て、検証し、意思決定できる組織。そんな企業が日本にもっと増えれば、この国の競争力は確実に向上します。</p>
-        </div>
-        <div class="vm-card fade-in">
-          <p class="vm-card-label">Our Mission</p>
-          <h3>戦略的思考のDNAを、<br>組織の中に根づかせる</h3>
-          <p>トップ戦略ファームで培った戦略的思考の「型」と「教える技術」を駆使して、クライアント企業の社内に「戦略ファーム品質の思考力」を移植すること。「魚を与える」のではなく、「魚の釣り方を完璧に教える」ことに全力を注ぎます。</p>
-        </div>
-      </div>
+<section class="light sec-pad" id="model">
+  <div class="sec-head reveal">
+    <div class="eyebrow"><span class="rule"></span>The Asterio Model</div>
+    <h2 class="sec-title">「答え」ではなく、<br />「答えを導く力」を。</h2>
+  </div>
+  <div class="model-grid">
+    <div class="model-viz reveal"><canvas id="viz" aria-hidden="true"></canvas></div>
+    <div class="model-copy reveal">
+      <blockquote>魚を与えるのではなく、<br /><em>魚の釣り方を、完璧に教える。</em></blockquote>
+      <p>元トップ戦略ファームのケースリーダーが、実際のプロジェクトを通じて戦略的思考のDNAを移植する。チーム派遣ではなくリーダー派遣。だからコストは抑えられ、知見はすべて社内に残る。外部依存から、自走する戦略組織へ。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Approach -->
-  <section class="approach" id="approach">
-    <div class="section-inner">
-      <div class="approach-header fade-in">
-        <p class="section-label">Our Approach</p>
-        <h2 class="section-title">なぜ、Asterioモデルなのか</h2>
-        <p class="section-subtitle">戦略ファーム活用における構造的な限界を解決し、<br>プロジェクト成功と人材育成を同時に実現する業界初のモデル</p>
-      </div>
-
-      <div class="problems-grid">
-        <div class="problem-card fade-in">
-          <div class="problem-number">01</div>
-          <h4>ナレッジの社外流出</h4>
-          <p>年間数億円を投じても、プロジェクト終了と共に蓄積された知見は全てコンサルタントと共に去る。社内には「答え」だけが残り「考え方」は残らない。</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-number">02</div>
-          <h4>人材育成機会の逸失</h4>
-          <p>社内の優秀な人材が、最高レベルの戦略的思考に触れる機会を失っている。本来なら大きく成長できる人材が、「傍観者」のポジションに留まり続ける。</p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-number">03</div>
-          <h4>実行段階での失速</h4>
-          <p>戦略立案は完璧でも、実行段階で「戦略的に考える人材」が社内にいないため、方向性がブレたり、修正が効かなくなる。</p>
-        </div>
-      </div>
-
-      <div class="model-highlight fade-in">
-        <div class="model-highlight-inner">
-          <h3>The Asterio Model</h3>
-          <p>単なる「答え」の提供ではなく、「答えを導き出す力」の育成に重点を置く。元トップ戦略ファームのケースリーダーが実際のプロジェクトを通じて戦略的思考のDNAを移植し、コンサルに依存しない自走する戦略組織を実現します。</p>
-          <div class="model-features">
-            <div class="model-feature">
-              <div class="feat-value">1/3 - 1/6</div>
-              <div class="feat-label">コスト</div>
-              <div class="feat-desc">チーム派遣ではなくリーダー派遣のため、従来の戦略ファームと比較して大幅なコスト削減</div>
-            </div>
-            <div class="model-feature">
-              <div class="feat-value">100%</div>
-              <div class="feat-label">ナレッジ社内蓄積</div>
-              <div class="feat-desc">知見が全て社内に残り、競争優位の源泉として蓄積され続ける</div>
-            </div>
-            <div class="model-feature">
-              <div class="feat-value">6-12 months</div>
-              <div class="feat-label">深い伴走期間</div>
-              <div class="feat-desc">短期集中ではなく、根本的な変化を可能にする深い伴走で自走型組織へ進化</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="dark sec-pad" id="numbers">
+  <div class="sec-head reveal">
+    <div class="eyebrow on-dark"><span class="rule"></span>By the Numbers</div>
+    <h2 class="sec-title">依存を、資産に変える。</h2>
+  </div>
+  <div class="numbers" data-stagger>
+    <div class="num reveal" style="--i:0">
+      <div class="big">1<em>/</em><span class="count" data-to="6">6</span></div>
+      <div class="k">Cost — 1/3 〜 1/6</div>
+      <div class="d">チーム派遣ではなくリーダー派遣。従来の戦略ファーム比で大幅なコスト削減。</div>
     </div>
-  </section>
-
-  <!-- Comparison -->
-  <section class="comparison">
-    <div class="section-inner">
-      <div class="comparison-header fade-in">
-        <p class="section-label">Comparison</p>
-        <h2 class="section-title">従来の戦略ファーム vs Asterioモデル</h2>
-      </div>
-      <div class="comparison-table-wrapper fade-in">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>従来の戦略ファーム</th>
-              <th>Asterioモデル</th>
-              <th>Long-term Impact</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>コスト</td>
-              <td>チームのため非常に高額</td>
-              <td>戦略ファームの約1/3 - 1/6</td>
-              <td>コスト削減効果が継続</td>
-            </tr>
-            <tr>
-              <td>人材育成</td>
-              <td>ほぼゼロ（観察学習のみ）</td>
-              <td>戦略的思考力が大幅向上</td>
-              <td>無形資産として蓄積</td>
-            </tr>
-            <tr>
-              <td>ナレッジ蓄積</td>
-              <td>100%社外流出</td>
-              <td>100%社内蓄積</td>
-              <td>競争優位の源泉に</td>
-            </tr>
-            <tr>
-              <td>プロジェクト期間</td>
-              <td>3-6ヶ月（短期集中）</td>
-              <td>6-12ヶ月（深い伴走）</td>
-              <td>根本的変化が可能</td>
-            </tr>
-            <tr>
-              <td>実行力</td>
-              <td>外部依存体質が継続</td>
-              <td>自走型組織へ進化</td>
-              <td>持続的な変革力</td>
-            </tr>
-            <tr>
-              <td>将来の戦略ニーズ</td>
-              <td>毎回外注が必要</td>
-              <td>社内で完結可能</td>
-              <td>TCOが激減</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="num reveal" style="--i:1">
+      <div class="big"><span class="count" data-to="100">100</span><em>%</em></div>
+      <div class="k">Knowledge Retained</div>
+      <div class="d">知見が100%社内に残り、競争優位の源泉として蓄積され続ける。</div>
     </div>
-  </section>
-
-  <!-- Company -->
-  <section class="company" id="company">
-    <div class="section-inner">
-      <div class="fade-in">
-        <p class="section-label">Company</p>
-        <h2 class="section-title">会社概要</h2>
-      </div>
-      <div class="company-grid">
-        <div class="fade-in">
-          <table class="company-table">
-            <tr>
-              <th>会社名</th>
-              <td>株式会社アステリオストラテジーパートナーズ<br>(Asterio Strategy Partners)</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>東京都世田谷区玉川台2-32-1-1402</td>
-            </tr>
-            <tr>
-              <th>設立</th>
-              <td>2025年2月</td>
-            </tr>
-            <tr>
-              <th>役員</th>
-              <td>代表取締役 白倉 誠<br>取締役 櫻井 佑介<br>取締役 鍋島 覚</td>
-            </tr>
-            <tr>
-              <th>資本金</th>
-              <td>300万円</td>
-            </tr>
-            <tr>
-              <th>主要株主</th>
-              <td>白倉 誠</td>
-            </tr>
-            <tr>
-              <th>事業内容</th>
-              <td>経営戦略に関するコンサルティング業務<br>企業の業務改善および組織改革のコンサルティング業務 他</td>
-            </tr>
-            <tr>
-              <th>連絡先</th>
-              <td>info@asterio-sp.com</td>
-            </tr>
-          </table>
-        </div>
-        <div class="company-message fade-in">
-          <div class="quote-mark">&ldquo;</div>
-          <h3>コンサルに頼らない、<br>強い組織をつくる</h3>
-          <p>私たちは、トップ戦略ファームで10年以上にわたり培ってきた戦略的思考の「型」を、クライアント企業の中に根づかせることに特化したファームです。答えを提供するのではなく、答えを導き出す力そのものを育てる。それが、Asterio Strategy Partnersの存在意義です。</p>
-        </div>
-      </div>
+    <div class="num reveal" style="--i:2">
+      <div class="big"><span class="count" data-to="6">6</span><em>–12</em></div>
+      <div class="k">Months — 深い伴走</div>
+      <div class="d">短期集中ではなく、根本的な変化を可能にする深い伴走で自走型組織へ。</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="section-inner">
-      <div class="contact-header fade-in">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">お問い合わせ</h2>
-        <p class="section-subtitle">戦略組織の構築に関するご相談は、<br>お気軽にお問い合わせください。</p>
-      </div>
-      <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/xbdzkkva" method="POST">
-        <input type="hidden" name="_subject" value="【ASP】ウェブサイトからのお問い合わせ">
-        <div class="form-row">
-          <div class="form-group">
-            <label>お名前<span class="required">*</span></label>
-            <input type="text" name="name" placeholder="山田 太郎" required>
-          </div>
-          <div class="form-group">
-            <label>会社名<span class="required">*</span></label>
-            <input type="text" name="company" placeholder="株式会社サンプル" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>メールアドレス<span class="required">*</span></label>
-            <input type="email" name="email" placeholder="example@company.com" required>
-          </div>
-          <div class="form-group">
-            <label>電話番号</label>
-            <input type="tel" name="phone" placeholder="03-1234-5678">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>ご相談内容</label>
-          <select name="category">
-            <option value="" disabled selected>選択してください</option>
-            <option value="戦略組織の構築について">戦略組織の構築について</option>
-            <option value="人材育成プログラムについて">人材育成プログラムについて</option>
-            <option value="Asterioモデルの詳細について">Asterioモデルの詳細について</option>
-            <option value="その他">その他</option>
+<section class="light sec-pad" id="comparison">
+  <div class="sec-head reveal">
+    <div class="eyebrow"><span class="rule"></span>Comparison</div>
+    <h2 class="sec-title">従来の戦略ファーム<br />vs Asterioモデル。</h2>
+  </div>
+  <div class="cmp reveal">
+    <table>
+      <thead><tr><th></th><th>従来の戦略ファーム</th><th class="asp">Asterioモデル</th><th>Long-term Impact</th></tr></thead>
+      <tbody>
+        <tr><td class="axis">コスト</td><td class="old">チーム派遣のため非常に高額</td><td class="asp asp-col">戦略ファームの約 1/3 – 1/6</td><td class="old">コスト削減効果が継続</td></tr>
+        <tr><td class="axis">人材育成</td><td class="old">ほぼゼロ（観察学習のみ）</td><td class="asp asp-col">戦略的思考力が大幅に向上</td><td class="old">無形資産として蓄積</td></tr>
+        <tr><td class="axis">ナレッジ蓄積</td><td class="old">100% 社外へ流出</td><td class="asp asp-col">100% 社内に蓄積</td><td class="old">競争優位の源泉に</td></tr>
+        <tr><td class="axis">期間</td><td class="old">3–6ヶ月（短期集中）</td><td class="asp asp-col">6–12ヶ月（深い伴走）</td><td class="old">根本的変化が可能</td></tr>
+        <tr><td class="axis">実行力</td><td class="old">外部依存体質が継続</td><td class="asp asp-col">自走型組織へ進化</td><td class="old">持続的な変革力</td></tr>
+        <tr><td class="axis">将来の戦略ニーズ</td><td class="old">毎回、外注が必要</td><td class="asp asp-col">社内で完結可能</td><td class="old">TCOが激減</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="dark sec-pad" id="vision">
+  <div class="sec-head reveal">
+    <div class="eyebrow on-dark"><span class="rule"></span>Vision &amp; Mission</div>
+    <h2 class="sec-title">私たちが、目指す世界。</h2>
+  </div>
+  <div class="vm">
+    <div class="card reveal">
+      <div class="k">Our Vision</div>
+      <h3>コンサル不要な企業が、<br />日本にもっと増えてほしい。</h3>
+      <p>コンサルティングファームに依存しない、自立した戦略組織。外部の知見は参考に留め、自分たちで深く考え、仮説を立て、検証し、意思決定できる組織。そんな企業が増えれば、この国の競争力は確実に向上する。</p>
+    </div>
+    <div class="card reveal">
+      <div class="k">Our Mission</div>
+      <h3>戦略的思考のDNAを、<br />組織の中に根づかせる。</h3>
+      <p>トップ戦略ファームで培った戦略的思考の「型」と「教える技術」を駆使し、クライアント企業の社内に「戦略ファーム品質の思考力」を移植する。答えを与えるのではなく、答えの導き方そのものを育てる。</p>
+    </div>
+  </div>
+</section>
+
+<section class="light sec-pad" id="company">
+  <div class="sec-head reveal">
+    <div class="eyebrow"><span class="rule"></span>Company</div>
+    <h2 class="sec-title">会社概要。</h2>
+  </div>
+  <div class="company-grid">
+    <div class="facts reveal">
+      <dl>
+        <div class="row"><dt>会社名</dt><dd>株式会社アステリオストラテジーパートナーズ<br /><span class="en">Asterio Strategy Partners Inc.</span></dd></div>
+        <div class="row"><dt>所在地</dt><dd>東京都世田谷区玉川台2-32-1-1402</dd></div>
+        <div class="row"><dt>設立</dt><dd>2025年2月</dd></div>
+        <div class="row"><dt>資本金</dt><dd>300万円</dd></div>
+        <div class="row"><dt>主要株主</dt><dd>白倉 誠</dd></div>
+        <div class="row"><dt>事業内容</dt><dd>経営戦略に関するコンサルティング業務／企業の業務改善および組織改革のコンサルティング業務 他</dd></div>
+        <div class="row"><dt>連絡先</dt><dd><a href="mailto:info@asterio-sp.com">info@asterio-sp.com</a></dd></div>
+      </dl>
+    </div>
+    <div class="officers reveal">
+      <div class="k">Officers</div>
+      <div class="officer"><span class="role">代表取締役</span><span class="name">白倉 誠</span></div>
+      <div class="officer"><span class="role">取締役</span><span class="name">櫻井 佑介</span></div>
+      <div class="officer"><span class="role">取締役</span><span class="name">鍋島 覚</span></div>
+      <p class="pull">コンサルに頼らない、強い組織をつくる。</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark sec-pad contact" id="contact">
+  <canvas id="tree-c" aria-hidden="true"></canvas>
+  <div class="inner">
+    <div class="reveal">
+      <div class="eyebrow on-dark"><span class="rule"></span>Contact</div>
+      <h2>戦略組織の構築について、<br />お気軽にご相談ください。</h2>
+      <p class="lead">自走する戦略組織の実現、戦略的思考の人材育成。まずは対話から始めましょう。</p>
+      <p class="contact-alt">EMAIL — <a href="mailto:info@asterio-sp.com">info@asterio-sp.com</a></p>
+    </div>
+    <div class="reveal">
+      <form id="contactForm" action="https://formspree.io/f/xbdzkkva" method="POST">
+        <label>お名前 <span class="req">*</span><input type="text" name="name" required autocomplete="name" /></label>
+        <label>会社名 <span class="req">*</span><input type="text" name="company" required autocomplete="organization" /></label>
+        <label>メールアドレス <span class="req">*</span><input type="email" name="email" required autocomplete="email" /></label>
+        <label>電話番号<input type="tel" name="tel" autocomplete="tel" /></label>
+        <label>ご相談内容
+          <select name="topic">
+            <option>戦略組織の構築について</option>
+            <option>人材育成プログラムについて</option>
+            <option>Asterioモデルの詳細について</option>
+            <option>その他</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label>メッセージ</label>
-          <textarea name="message" placeholder="ご相談内容の詳細をご記入ください"></textarea>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
+        </label>
+        <label>メッセージ<textarea name="message"></textarea></label>
+        <button type="submit">送信する</button>
+        <p class="form-note">※ お預かりした個人情報は、ご相談対応の目的以外には利用いたしません。</p>
       </form>
-      <div id="thankYou" class="fade-in" style="display:none; text-align:center; padding:60px 0;">
-        <p style="font-size:1.5rem; color:var(--white); font-family:'Cormorant Garamond',serif; margin-bottom:16px;">Thank you.</p>
-        <p style="color:rgba(255,255,255,0.6); font-size:0.95rem;">お問い合わせありがとうございます。<br>担当者より折り返しご連絡いたします。</p>
-      </div>
+      <div class="thanks" id="thanks"><b>Thank you.</b><p>お問い合わせありがとうございます。担当者より折り返しご連絡いたします。</p></div>
     </div>
-  </section>
+  </div>
+</section>
+</main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo"><img src="asp-logo.png" alt="ASP"></div>
-      <ul class="footer-links">
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#company">Company</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<footer class="footer">
+  <div class="fw">
+    <a class="brand" href="#hero"><span class="mark"></span><b>ASP</b></a>
+    <div class="flinks">
+      <a href="#problem">Problem</a><a href="#model">Model</a><a href="#vision">Vision</a><a href="#company">Company</a><a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">&copy; 2026 Asterio Strategy Partners Inc. All Rights Reserved.</div>
-  </footer>
+    <div class="copy">© 2026 Asterio Strategy Partners Inc.</div>
+  </div>
+</footer>
 
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    // Scroll fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Form submission via Formspree (AJAX)
-    const contactForm = document.getElementById('contactForm');
-    const thankYou = document.getElementById('thankYou');
-    const submitBtn = document.getElementById('submitBtn');
-
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      submitBtn.textContent = '送信中...';
-      submitBtn.disabled = true;
-
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      }).then(res => {
-        if (res.ok) {
-          contactForm.style.display = 'none';
-          thankYou.style.display = 'block';
-          thankYou.classList.add('visible');
-        } else {
-          submitBtn.textContent = '送信する';
-          submitBtn.disabled = false;
-          alert('送信に失敗しました。しばらく経ってからもう一度お試しください。');
-        }
-      }).catch(() => {
-        submitBtn.textContent = '送信する';
-        submitBtn.disabled = false;
-        alert('送信に失敗しました。ネットワーク接続をご確認ください。');
-      });
-    });
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
