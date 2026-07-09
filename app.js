@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var C = { ink: '8,10,26', mist: '185,190,218', red: '196,30,58', redSoft: '224,86,110', paper: '230,232,244' };
+  var C = { ink: '15,19,48', mist: '185,190,218', red: '196,30,58', redSoft: '224,86,110', paper: '230,232,244' };
 
   /* ---------- Lenis smooth scroll ---------- */
   var lenis = null;
@@ -104,7 +104,7 @@
       var px = (mouse.x - .5) * -26 * DPR, py = (mouse.y - .5) * -18 * DPR;
       ctx.clearRect(0, 0, W, H);
       var g = ctx.createRadialGradient(W * anchorX + px, H * anchorY + py, 0, W * anchorX + px, H * anchorY + py, W * .5);
-      g.addColorStop(0, 'rgba(42,49,120,.2)'); g.addColorStop(1, 'rgba(8,10,26,0)');
+      g.addColorStop(0, 'rgba(52,60,142,.22)'); g.addColorStop(1, 'rgba(15,19,48,0)');
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
       particles.forEach(function (p) {

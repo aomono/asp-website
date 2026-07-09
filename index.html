@@ -15,7 +15,10 @@
 <meta property="og:image" content="https://www.asterio-sp.com/asp-logo.png" />
 <meta property="og:locale" content="ja_JP" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="icon" href="/asp-logo.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#0F1330" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -24,7 +27,7 @@
 </script>
 <style>
 :root{
-  --ink:#080A1A; --ink-2:#0F1338; --navy:#1B2057; --navy-l:#2A3178;
+  --ink:#0F1330; --ink-2:#0F1338; --navy:#1B2057; --navy-l:#2A3178;
   --paper:#F5F4EF; --paper-2:#ECEBE3; --mist:#B9BEDA; --slate:#5A6079;
   --line-d:rgba(185,190,218,.14); --line-l:rgba(20,24,58,.12);
   --red:#C41E3A; --red-soft:#E0566E;
@@ -56,7 +59,7 @@ img{max-width:100%;display:block}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
   justify-content:space-between;padding:22px var(--pad);transition:padding .4s,background .4s,border-color .4s;
   border-bottom:1px solid transparent}
-.nav.scrolled{padding:14px var(--pad);background:rgba(8,10,26,.72);backdrop-filter:blur(14px);border-color:var(--line-d)}
+.nav.scrolled{padding:14px var(--pad);background:rgba(15,19,48,.72);backdrop-filter:blur(14px);border-color:var(--line-d)}
 .brand{display:flex;align-items:center}
 .brand .logo{height:34px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.96;transition:opacity .3s}
 .brand:hover .logo{opacity:1}
@@ -76,7 +79,7 @@ img{max-width:100%;display:block}
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:var(--ink)}
 #tree{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 .hero .vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:radial-gradient(120% 90% at 62% 42%,transparent 42%,rgba(4,5,15,.6) 100%)}
+  background:radial-gradient(120% 90% at 62% 42%,transparent 46%,rgba(6,8,22,.4) 100%)}
 .hero .grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero-copy{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;justify-content:center;
@@ -211,7 +214,7 @@ form button:hover{background:var(--red);color:#fff;letter-spacing:.22em}
   .nav .links,.nav .cta{display:none}
   .burger{display:flex}
   .nav.open .links{display:flex;position:fixed;inset:60px 0 auto 0;flex-direction:column;gap:0;
-    background:rgba(8,10,26,.97);backdrop-filter:blur(16px);padding:8px var(--pad) 24px;border-bottom:1px solid var(--line-d)}
+    background:rgba(15,19,48,.97);backdrop-filter:blur(16px);padding:8px var(--pad) 24px;border-bottom:1px solid var(--line-d)}
   .nav.open .links a{padding:16px 0;border-bottom:1px solid var(--line-d);font-size:13px}
   #tree{opacity:.5}
   .hero-copy{justify-content:flex-end;padding-bottom:15vh}
