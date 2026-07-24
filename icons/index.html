@@ -236,7 +236,7 @@ document.getElementById('reset').addEventListener('click',()=>setMain(DEFAULT_MA
 
 (async ()=>{
   try{
-    ICONS = await (await fetch('./icons.json')).json();
+    ICONS = await (await fetch('/icons/icons.json')).json();
     await Promise.all(ICONS.map(async ic=>{
       if(ic.files.svg){ try{ ic._svg = await (await fetch(ic.files.svg)).text(); }catch{ ic._svg=''; } }
     }));
