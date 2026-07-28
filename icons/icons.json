@@ -202,5 +202,145 @@
     "source": "gemini",
     "brand_neutral": true,
     "created_at": "2026-06-24"
+  },
+  {
+    "id": "data-pipeline-dashboard-001",
+    "type": "icon",
+    "name": "データ基盤とダッシュボード",
+    "name_en": "data-pipeline-dashboard",
+    "tags": [
+      "データ",
+      "ダッシュボード",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/data-pipeline-dashboard-001.svg",
+      "png": "/icons/files/data-pipeline-dashboard-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "ai-business-tool-001",
+    "type": "icon",
+    "name": "AI業務ツール",
+    "name_en": "ai-business-tool",
+    "tags": [
+      "AI",
+      "検索",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/ai-business-tool-001.svg",
+      "png": "/icons/files/ai-business-tool-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "excel-inventory-migration-001",
+    "type": "icon",
+    "name": "Excel棚卸しと移行",
+    "name_en": "excel-inventory-migration",
+    "tags": [
+      "Excel",
+      "移行",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/excel-inventory-migration-001.svg",
+      "png": "/icons/files/excel-inventory-migration-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "automation-bot-001",
+    "type": "icon",
+    "name": "自動化ボット",
+    "name_en": "automation-bot",
+    "tags": [
+      "ボット",
+      "自動化",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/automation-bot-001.svg",
+      "png": "/icons/files/automation-bot-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "quick-prototype-001",
+    "type": "icon",
+    "name": "壁打ちからプロトタイプ",
+    "name_en": "quick-prototype",
+    "tags": [
+      "対話",
+      "プロトタイプ",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/quick-prototype-001.svg",
+      "png": "/icons/files/quick-prototype-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "iterate-in-use-001",
+    "type": "icon",
+    "name": "使いながら直す",
+    "name_en": "iterate-in-use",
+    "tags": [
+      "改善",
+      "サイクル",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/iterate-in-use-001.svg",
+      "png": "/icons/files/iterate-in-use-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
+  },
+  {
+    "id": "delivery-handover-001",
+    "type": "icon",
+    "name": "納品と引き継ぎ",
+    "name_en": "delivery-handover",
+    "tags": [
+      "納品",
+      "引き継ぎ",
+      "ネイビー線画"
+    ],
+    "category": "",
+    "description": "",
+    "files": {
+      "svg": "/icons/files/delivery-handover-001.svg",
+      "png": "/icons/files/delivery-handover-001.png"
+    },
+    "source": "gemini",
+    "brand_neutral": true,
+    "created_at": "2026-07-28"
   }
 ]
